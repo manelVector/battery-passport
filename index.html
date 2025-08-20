@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <title>Battery Passport</title>
@@ -13,7 +13,7 @@
 
   <main>
     <div id="content">
-      <p>Cargando datos...</p>
+      <p>Loading data...</p>
     </div>
   </main>
 
@@ -34,40 +34,40 @@
         const item = data[id];
         let html = "";
 
-        if (item.tipo === "celda") {
+        if (item.type === "cell") {
           html = `
-            <h2>Celda ${id}</h2>
-            <p><b>Modelo:</b> ${item.modelo}</p>
-            <p><b>Fecha de fabricación:</b> ${item.fabricacion}</p>
-            <p><b>Huella de carbono:</b> ${item.huella}</p>
-            <p><b>UUID:</b> ${item.uuid}</p>
-            <p><b>Capacidad:</b> ${item.capacidad}</p>
-            <p><b>Voltaje nominal:</b> ${item.voltaje}</p>
+            <h2>Cell ${id}</h2>
+            <p><b>Manufacturer:</b> ${item.manufacturer}</p>
+            <p><b>Model:</b> ${item.model}</p>
+            <p><b>Manufacture Date:</b> ${item.manufacture_date}</p>
+            <p><b>Carbon Footprint:</b> ${item.carbon_footprint}</p>
+            <p><b>Capacity:</b> ${item.capacity}</p>
+            <p><b>Voltage:</b> ${item.voltage}</p>
           `;
         } 
-        else if (item.tipo === "batpack") {
+        else if (item.type === "batpack") {
           html = `
             <h2>Battery Pack ${id}</h2>
             <p><b>UUID:</b> ${item.uuid}</p>
-            <p><b>Descripción:</b> ${item.descripcion}</p>
-            <p><b>Total celdas:</b> ${item.totalCeldas}</p>
-            <p><b>Voltaje nominal:</b> ${item.voltajeNominal}</p>
-            <p><b>Capacidad total:</b> ${item.capacidadTotal}</p>
+            <p><b>Description:</b> ${item.description}</p>
+            <p><b>Total Cells:</b> ${item.total_cells}</p>
+            <p><b>Nominal Voltage:</b> ${item.nominal_voltage}</p>
+            <p><b>Total Capacity:</b> ${item.total_capacity}</p>
             <div class="cell-grid">
-              ${item.celdas.map((celdaId, i) => `
-                <a href="index.html?id=${celdaId}" class="cell-button">Celda ${i+1}</a>
+              ${item.cells.map((cellId, i) => `
+                <a href="index.html?id=${cellId}" class="cell-button">Cell ${i+1}</a>
               `).join("")}
             </div>
           `;
         } 
-        else if (item.tipo === "bess") {
+        else if (item.type === "bess") {
           html = `
             <h2>BESS ${id}</h2>
             <p><b>UUID:</b> ${item.uuid}</p>
-            <p><b>Descripción:</b> ${item.descripcion}</p>
-            <p><b>Ubicación:</b> ${item.ubicacion}</p>
-            <p><b>Potencia:</b> ${item.potencia}</p>
-            <p><b>Energía:</b> ${item.energia}</p>
+            <p><b>Description:</b> ${item.description}</p>
+            <p><b>Location:</b> ${item.location}</p>
+            <p><b>Power:</b> ${item.power}</p>
+            <p><b>Energy:</b> ${item.energy}</p>
             <div class="pack-grid">
               ${item.batpacks.map((packId, i) => `
                 <a href="index.html?id=${packId}" class="pack-button">Battery Pack ${i+1}</a>
@@ -76,11 +76,11 @@
           `;
         }
 
-        // Botón de retorno si tiene padre
+        // Back button if it has a parent
         if (item.parent) {
           html += `
             <a href="index.html?id=${item.parent}" class="back-button">
-              ⬅ Volver a ${item.parent}
+              ⬅ Back to ${item.parent}
             </a>
           `;
         }
@@ -88,13 +88,10 @@
         content.innerHTML = html;
 
       } else {
-        content.innerHTML = "<p>ID no encontrado en la base de datos.</p>";
+        content.innerHTML = "<p>ID not found in the database.</p>";
       }
     });
 </script>
-
-
-
 
 </body>
 </html>

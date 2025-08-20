@@ -1,37 +1,37 @@
 {
-  "CELDA01": {
-    "tipo": "celda",
-    "fabricacion": "2024-06-15",
-    "huella": "2.1 kgCO2eq",
-    "uuid": "123e4567-e89b-12d3-a456-426614174000",
-    "modelo": "INR18650-35E",
-    "capacidad": "3.5 Ah",
-    "voltaje": "3.7 V",
+  "CELL01": {
+    "type": "cell",
+    "manufacturer": "LYTH",
+    "manufacture_date": "2024-06-15",
+    "carbon_footprint": "",
+    "model": "L173F220A",
+    "capacity": "220 Ah",
+    "voltage": "3.7 V",
     "parent": "PACK01"
   },
 
   "PACK01": {
-    "tipo": "batpack",
-    "descripcion": "Battery Pack estándar de 200 celdas 18650",
-    "modeloCelda": "INR18650-35E",
-    "totalCeldas": 10,
-    "celdas": [
-      "CELDA01", "CELDA01", "CELDA01", "CELDA01", "CELDA01",
-      "CELDA01", "CELDA01", "CELDA01", "CELDA01", "CELDA01"
+    "type": "batpack",
+    "description": "Standard 18650 cell battery pack",
+    "cell_model": "L173F220A",
+    "total_cells": 10,
+    "cells": [
+      "CELL01", "CELL01", "CELL01", "CELL01", "CELL01",
+      "CELL01", "CELL01", "CELL01", "CELL01", "CELL01"
     ],
-    "voltajeNominal": "11.1 V",
-    "capacidadTotal": "10.5 Ah",
+    "nominal_voltage": "11.1 V",
+    "total_capacity": "220 Ah",
     "uuid": "223e4567-e89b-12d3-a456-426614174000",
     "parent": "BESS01"
   },
 
   "BESS01": {
-    "tipo": "bess",
-    "descripcion": "Sistema BESS prototipo de laboratorio",
+    "type": "bess",
+    "description": "Laboratory prototype BESS system",
     "batpacks": ["PACK01", "PACK01"],
-    "ubicacion": "Valencia, España",
-    "potencia": "500 kW",
-    "energia": "1 MWh",
+    "location": "Valencia, Spain",
+    "power": "500 kW",
+    "energy": "1 MWh",
     "uuid": "323e4567-e89b-12d3-a456-426614174000"
   }
 }

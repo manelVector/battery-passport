@@ -73,15 +73,20 @@ main {
 
 
 .pack-grid {
-  display: flex;
-  flex-direction: column;
+  display: grid;
+
   gap: 10px;
-  margin-top: 15px;
+  margin: 20px auto;
+  padding: 20px 15px 15px 15px; /* espacio arriba para terminales */
+  background: #555555;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  position: relative; /* para posicionar terminales */
+  width: max-content;
 }
 
 .pack-button {
   display: inline-block;
-  margin-top: 2rem;
   padding: 0.8rem 1.5rem;
   background: linear-gradient(135deg, #F1872D, #ff9e57);
   color: white;
@@ -97,30 +102,66 @@ main {
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
+/* Grid for cells inside a Battery Pack */
+/* Battery Pack container */
 .cell-grid {
   display: grid;
-  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
-  gap: 12px;
-  margin-top: 15px;
+  grid-template-columns: repeat(2, 200px); /* 2 columnas */
+  grid-template-rows: repeat(5, 80px);   /* 5 filas */
+  gap: 10px;
+  margin: 20px auto;
+  padding: 20px 15px 15px 15px; /* espacio arriba para terminales */
+  background: #555555;
+  border-radius: 12px;
+  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+  position: relative; /* para posicionar terminales */
+  width: max-content;
+  grid-auto-flow: column;
 }
 
+/* Positive and negative terminals */
+.cell-grid::before,
+.cell-grid::after {
+  content: "";
+  position: absolute;
+  width: 20px;
+  height: 10px;
+  border-radius: 3px;
+  top: 5px;
+}
+
+.cell-grid::before {
+  background: red;
+  left: 20px; /* posición del terminal positivo */
+}
+
+.cell-grid::after {
+  background: black;
+  right: 20px; /* posición del terminal negativo */
+}
+
+/* Cada celda */
 .cell-button {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.8rem 1.5rem;
+  width: 200px;
+  height: 80px;
   background: linear-gradient(135deg, #F1872D, #ff9e57);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  transition: all 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
   color: white;
   font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
+  font-size: 0.8rem;
 }
+
 .cell-button:hover {
-  background: linear-gradient(135deg, #e67615, #ffb37a);
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
 }
+
 
 footer {
   text-align: center;
