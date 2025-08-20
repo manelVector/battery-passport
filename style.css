@@ -10,7 +10,7 @@ header {
   color: #333F49;
   text-align: center;
   padding: 2rem 1rem;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  
 }
 
 header h1 {
@@ -26,7 +26,7 @@ header p {
 
 main {
   background: #777777;
-  color: #ffffff;
+  color: #333F49;
   padding: 2rem;
 }
 
@@ -71,10 +71,61 @@ main {
   box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
+
+.pack-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.pack-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #F1872D, #ff9e57);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+.pack-button:hover {
+  background: linear-gradient(135deg, #e67615, #ffb37a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
+.cell-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas */
+  gap: 12px;
+  margin-top: 15px;
+}
+
+.cell-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #F1872D, #ff9e57);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+}
+.cell-button:hover {
+  background: linear-gradient(135deg, #e67615, #ffb37a);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
+}
+
 footer {
   text-align: center;
   padding: 1rem;
-  background: #eee;
+  background: #333F49;
   margin-top: 2rem;
   font-size: 0.9rem;
 }

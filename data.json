@@ -1,22 +1,37 @@
 {
-  "00001": {
+  "CELDA01": {
     "tipo": "celda",
-    "fabricacion": "2025-01-20",
-    "huella": "0.42 kgCO2",
-    "uuid": "a1b2c3d4",
-    "modulo": "M01"
+    "fabricacion": "2024-06-15",
+    "huella": "2.1 kgCO2eq",
+    "uuid": "123e4567-e89b-12d3-a456-426614174000",
+    "modelo": "INR18650-35E",
+    "capacidad": "3.5 Ah",
+    "voltaje": "3.7 V",
+    "parent": "PACK01"
   },
-  "00020": {
-    "tipo": "celda",
-    "fabricacion": "2025-01-21",
-    "huella": "0.45 kgCO2",
-    "uuid": "a1b2c3d5",
-    "modulo": "M01"
+
+  "PACK01": {
+    "tipo": "batpack",
+    "descripcion": "Battery Pack estándar de 200 celdas 18650",
+    "modeloCelda": "INR18650-35E",
+    "totalCeldas": 10,
+    "celdas": [
+      "CELDA01", "CELDA01", "CELDA01", "CELDA01", "CELDA01",
+      "CELDA01", "CELDA01", "CELDA01", "CELDA01", "CELDA01"
+    ],
+    "voltajeNominal": "11.1 V",
+    "capacidadTotal": "10.5 Ah",
+    "uuid": "223e4567-e89b-12d3-a456-426614174000",
+    "parent": "BESS01"
   },
-  "M01": {
-    "tipo": "modulo",
-    "descripcion": "Submódulo 1",
-    "num_celdas": 20,
-    "celdas": ["00001","00002","00003","..."]
+
+  "BESS01": {
+    "tipo": "bess",
+    "descripcion": "Sistema BESS prototipo de laboratorio",
+    "batpacks": ["PACK01", "PACK01"],
+    "ubicacion": "Valencia, España",
+    "potencia": "500 kW",
+    "energia": "1 MWh",
+    "uuid": "323e4567-e89b-12d3-a456-426614174000"
   }
 }

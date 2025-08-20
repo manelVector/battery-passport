@@ -15,43 +15,86 @@
     <div id="content">
       <p>Cargando datos...</p>
     </div>
-    <a href="index.html" class="back-button">Volver al inicio</a>
   </main>
 
   <footer>
     <p>© 2025 Battery Passport Prototype</p>
   </footer>
 
-  <script>
-    // Obtener ?id=xxxx de la URL
-    const params = new URLSearchParams(window.location.search);
-    const id = params.get("id");
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const id = params.get("id");
 
-    fetch("data.json")
-      .then(res => res.json())
-      .then(data => {
-        const content = document.getElementById("content");
-        if (id && data[id]) {
-          const item = data[id];
-          if (item.tipo === "celda") {
-            content.innerHTML = `
-              <h2>Celda ${id}</h2>
-              <p><b>Fecha de fabricación:</b> ${item.fabricacion}</p>
-              <p><b>Huella de carbono:</b> ${item.huella}</p>
-              <p><b>UUID:</b> ${item.uuid}</p>
-              <p><b>Módulo asociado:</b> ${item.modulo}</p>
-            `;
-          } else if (item.tipo === "modulo") {
-            content.innerHTML = `
-              <h2>Módulo ${id}</h2>
-              <p><b>Descripción:</b> ${item.descripcion}</p>
-              <p><b>Celdas incluidas:</b> ${item.celdas.join(", ")}</p>
-            `;
-          }
-        } else {
-          content.innerHTML = "<p>ID no encontrado en la base de datos.</p>";
+  fetch("data.json")
+    .then(res => res.json())
+    .then(data => {
+      const content = document.getElementById("content");
+
+      if (id && data[id]) {
+        const item = data[id];
+        let html = "";
+
+        if (item.tipo === "celda") {
+          html = `
+            <h2>Celda ${id}</h2>
+            <p><b>Modelo:</b> ${item.modelo}</p>
+            <p><b>Fecha de fabricación:</b> ${item.fabricacion}</p>
+            <p><b>Huella de carbono:</b> ${item.huella}</p>
+            <p><b>UUID:</b> ${item.uuid}</p>
+            <p><b>Capacidad:</b> ${item.capacidad}</p>
+            <p><b>Voltaje nominal:</b> ${item.voltaje}</p>
+          `;
+        } 
+        else if (item.tipo === "batpack") {
+          html = `
+            <h2>Battery Pack ${id}</h2>
+            <p><b>UUID:</b> ${item.uuid}</p>
+            <p><b>Descripción:</b> ${item.descripcion}</p>
+            <p><b>Total celdas:</b> ${item.totalCeldas}</p>
+            <p><b>Voltaje nominal:</b> ${item.voltajeNominal}</p>
+            <p><b>Capacidad total:</b> ${item.capacidadTotal}</p>
+            <div class="cell-grid">
+              ${item.celdas.map((celdaId, i) => `
+                <a href="index.html?id=${celdaId}" class="cell-button">Celda ${i+1}</a>
+              `).join("")}
+            </div>
+          `;
+        } 
+        else if (item.tipo === "bess") {
+          html = `
+            <h2>BESS ${id}</h2>
+            <p><b>UUID:</b> ${item.uuid}</p>
+            <p><b>Descripción:</b> ${item.descripcion}</p>
+            <p><b>Ubicación:</b> ${item.ubicacion}</p>
+            <p><b>Potencia:</b> ${item.potencia}</p>
+            <p><b>Energía:</b> ${item.energia}</p>
+            <div class="pack-grid">
+              ${item.batpacks.map((packId, i) => `
+                <a href="index.html?id=${packId}" class="pack-button">Battery Pack ${i+1}</a>
+              `).join("")}
+            </div>
+          `;
         }
-      });
-  </script>
+
+        // Botón de retorno si tiene padre
+        if (item.parent) {
+          html += `
+            <a href="index.html?id=${item.parent}" class="back-button">
+              ⬅ Volver a ${item.parent}
+            </a>
+          `;
+        }
+
+        content.innerHTML = html;
+
+      } else {
+        content.innerHTML = "<p>ID no encontrado en la base de datos.</p>";
+      }
+    });
+</script>
+
+
+
+
 </body>
 </html>
