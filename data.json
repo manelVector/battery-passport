@@ -1,0 +1,22 @@
+{
+  "00001": {
+    "tipo": "celda",
+    "fabricacion": "2025-01-20",
+    "huella": "0.42 kgCO2",
+    "uuid": "a1b2c3d4",
+    "modulo": "M01"
+  },
+  "00020": {
+    "tipo": "celda",
+    "fabricacion": "2025-01-21",
+    "huella": "0.45 kgCO2",
+    "uuid": "a1b2c3d5",
+    "modulo": "M01"
+  },
+  "M01": {
+    "tipo": "modulo",
+    "descripcion": "Submódulo 1",
+    "num_celdas": 20,
+    "celdas": ["00001","00002","00003","..."]
+  }
+}

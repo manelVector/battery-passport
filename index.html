@@ -11,26 +11,46 @@
   </header>
 
   <main>
-    <h2>BESS Battery Packs</h2>
-    <div class="grid">
-      <a href="BP/BP01.html" class="cell">Battery-pack 01</a>
-      <a href="BP/BP02.html" class="cell">Battery-pack 02</a>
-      <a href="BP/BP03.html" class="cell">Battery-pack 03</a>
-      <a href="BP/BP04.html" class="cell">Battery-pack 04</a>
-      <a href="BP/BP05.html" class="cell">Battery-pack 05</a>
-      <a href="BP/BP06.html" class="cell">Battery-pack 06</a>
-      <a href="BP/BP07.html" class="cell">Battery-pack 07</a>
-      <a href="BP/BP08.html" class="cell">Battery-pack 08</a>
-      <a href="BP/BP09.html" class="cell">Battery-pack 09</a>
-      <a href="BP/BP10.html" class="cell">Battery-pack 10</a>
-      <a href="BP/BP11.html" class="cell">Battery-pack 11</a>
-      <a href="BP/BP12.html" class="cell">Battery-pack 12</a>
-      <a href="BP/BP13.html" class="cell">Battery-pack 13</a>
+    <div id="content">
+      <p>Cargando datos...</p>
     </div>
+    <a href="index.html" class="back-button">Volver al inicio</a>
   </main>
 
   <footer>
     <p>© 2025 Battery Passport Prototype</p>
   </footer>
+
+  <script>
+    // Obtener ?id=xxxx de la URL
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get("id");
+
+    fetch("data.json")
+      .then(res => res.json())
+      .then(data => {
+        const content = document.getElementById("content");
+        if (id && data[id]) {
+          const item = data[id];
+          if (item.tipo === "celda") {
+            content.innerHTML = `
+              <h2>Celda ${id}</h2>
+              <p><b>Fecha de fabricación:</b> ${item.fabricacion}</p>
+              <p><b>Huella de carbono:</b> ${item.huella}</p>
+              <p><b>UUID:</b> ${item.uuid}</p>
+              <p><b>Módulo asociado:</b> ${item.modulo}</p>
+            `;
+          } else if (item.tipo === "modulo") {
+            content.innerHTML = `
+              <h2>Módulo ${id}</h2>
+              <p><b>Descripción:</b> ${item.descripcion}</p>
+              <p><b>Celdas incluidas:</b> ${item.celdas.join(", ")}</p>
+            `;
+          }
+        } else {
+          content.innerHTML = "<p>ID no encontrado en la base de datos.</p>";
+        }
+      });
+  </script>
 </body>
 </html>
