@@ -7,7 +7,12 @@
     "model": "L173F220A",
     "capacity": "220 Ah",
     "voltage": "3.7 V",
-    "parent": "PACK01"
+    "parent": "PACK01",
+    "EOLvoltage":"3.7 V",
+    "EOLcurrent": "246,28 A",
+    "EOLresistance": "0,228 Ω"
+
+    
   },
 
   "PACK01": {

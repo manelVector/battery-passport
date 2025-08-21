@@ -8,6 +8,12 @@ body {
 
 }
 
+header .logo {
+  width: 70%;     /* se adapta al ancho del header */
+  height: auto;
+  
+}
+
 /* Contenedor de battery packs */
 .pack-grid {
   display: grid;
@@ -83,14 +89,30 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Estilo para el título del desplegable */
 .accordion-title {
-  font-size: 1.2rem;          /* ligeramente más grande */
-  font-weight: bold;
   cursor: pointer;
-  padding-bottom: 0.3rem;     /* espacio para el borde */
-  border-bottom: 2px solid ;  /* borde inicial invisible */
-  transition: border-color 0.3s ease;    /* transición suave */
+  font-size: 1.2rem;       /* un poquito más grande */
+  font-weight: bold;
+  border-bottom: 2px solid #333F49; /* efecto tipo subrayado */
+  padding: 0.5rem 0;
+  position: relative;
+  transition: color 0.2s;
+}
+
+/* Flecha usando ::after */
+.accordion-title::after {
+  content: "▼";            /* flecha hacia abajo */
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s;
+}
+
+/* Cuando el desplegable está abierto */
+.accordion-content.open + .accordion-title::after,
+.accordion-title.active::after {
+  transform: translateY(-50%) rotate(180deg); /* rota hacia arriba */
 }
 
 /* Contenedor de contenido del desplegable */
