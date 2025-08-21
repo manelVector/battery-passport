@@ -1,5 +1,5 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: Raleway;
   background: #ffffff;
   color: #333F49;
   display: flex;
@@ -31,7 +31,20 @@ body {
 }
 
 /* ========= BOTONES Y LINKS ========= */
-.back-button,
+.back-button{
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
+  background: linear-gradient(135deg, #F1872D, #ff9e57);
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+  text-align: center;
+  margin: 20px;
+}
+
 .pack-button,
 .cell-button,
 .cell {
@@ -68,4 +81,27 @@ footer {
   color: #ffffff;
   margin-top: 3rem;
   font-size: 0.9rem;
+}
+
+/* Estilo para el título del desplegable */
+.accordion-title {
+  font-size: 1.2rem;          /* ligeramente más grande */
+  font-weight: bold;
+  cursor: pointer;
+  padding-bottom: 0.3rem;     /* espacio para el borde */
+  border-bottom: 2px solid ;  /* borde inicial invisible */
+  transition: border-color 0.3s ease;    /* transición suave */
+}
+
+/* Contenedor de contenido del desplegable */
+.accordion-content {
+  font-size: 1rem;
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.3s ease;
+}
+
+/* Cuando está abierto */
+.accordion-content.open {
+  max-height: 1000px; /* lo suficientemente grande para el contenido */
 }
