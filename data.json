@@ -28,8 +28,8 @@
   "BESS01": {
     "type": "bess",
     "description": "Laboratory prototype BESS system",
-    "batpacks": ["PACK01", "PACK01"],
-    "location": "Valencia, Spain",
+    "batpacks": ["PACK01", "PACK01", "PACK01", "PACK01", "PACK01", "PACK01", "PACK01", "PACK01"],
+    "location": "Bcn, Spain",
     "power": "500 kW",
     "energy": "1 MWh",
     "uuid": "323e4567-e89b-12d3-a456-426614174000"

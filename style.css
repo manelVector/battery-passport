@@ -1,172 +1,71 @@
 body {
   font-family: Arial, sans-serif;
-  margin: 0;
-  background: #777777;
-  color: #ffffff;
-}
-
-header {
-  background: #777777;
+  background: #ffffff;
   color: #333F49;
-  text-align: center;
-  padding: 2rem 1rem;
-  
-}
-
-header h1 {
-  margin: 0;
-  font-size: 2.2rem;
-}
-
-header p {
-  margin: 0.5rem 0 0;
-  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
 }
 
-main {
-  background: #777777;
-  color: #333F49;
-  padding: 2rem;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 1rem;
-}
-
-.cell {
-  margin-top: 2rem;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #F1872D, #ff9e57);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
-}
-
-.cell:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-.back-button {
-  display: inline-block;
-  margin-top: 2rem;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #F1872D, #ff9e57);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
-}
-
-.back-button:hover {
-  background: linear-gradient(135deg, #e67615, #ffb37a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
-
-
+/* Contenedor de battery packs */
 .pack-grid {
   display: grid;
-
   gap: 10px;
-  margin: 20px auto;
-  padding: 20px 15px 15px 15px; /* espacio arriba para terminales */
-  background: #555555;
-  border-radius: 12px;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-  position: relative; /* para posicionar terminales */
-  width: max-content;
+  margin: 20px 0;
+  padding: 15px 15px 15px 15px;
+  text-align: center;
 }
 
-.pack-button {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #F1872D, #ff9e57);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
-}
-.pack-button:hover {
-  background: linear-gradient(135deg, #e67615, #ffb37a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
-
-/* Grid for cells inside a Battery Pack */
-/* Battery Pack container */
+/* Contenedor de celdas */
 .cell-grid {
   display: grid;
-  grid-template-columns: repeat(2, 200px); /* 2 columnas */
-  grid-template-rows: repeat(5, 80px);   /* 5 filas */
+  grid-template-columns: repeat(2, 200px);
+  grid-template-rows: repeat(5, 40px);
   gap: 10px;
-  margin: 20px auto;
-  padding: 20px 15px 15px 15px; /* espacio arriba para terminales */
-  background: #555555;
-  border-radius: 12px;
-  box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
-  position: relative; /* para posicionar terminales */
-  width: max-content;
+  margin: 20px 0;
+  padding: 15px 15px 15px 15px;
+
+  text-align: center;
   grid-auto-flow: column;
 }
 
-/* Positive and negative terminals */
-.cell-grid::before,
-.cell-grid::after {
-  content: "";
-  position: absolute;
-  width: 20px;
-  height: 10px;
-  border-radius: 3px;
-  top: 5px;
-}
-
-.cell-grid::before {
-  background: red;
-  left: 20px; /* posición del terminal positivo */
-}
-
-.cell-grid::after {
-  background: black;
-  right: 20px; /* posición del terminal negativo */
-}
-
-/* Cada celda */
-.cell-button {
-  width: 200px;
-  height: 80px;
+/* ========= BOTONES Y LINKS ========= */
+.back-button,
+.pack-button,
+.cell-button,
+.cell {
+  display: inline-block;
+  padding: 0.8rem 1.5rem;
   background: linear-gradient(135deg, #F1872D, #ff9e57);
-  border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
-  transition: all 0.2s ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
   color: white;
   font-weight: bold;
-  font-size: 0.8rem;
+  text-decoration: none;
+  border-radius: 8px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+  transition: all 0.2s ease-in-out;
+  text-align: center;
 }
 
-.cell-button:hover {
+.back-button:hover,
+.pack-button:hover,
+.cell-button:hover,
+.cell:hover {
+  background: linear-gradient(135deg, #e67615, #ffb37a);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
 }
 
 
+header{
+  text-align: center;
+}
 footer {
+  width: 100vw;            /* ancho completo de la ventana */
   text-align: center;
   padding: 1rem;
   background: #333F49;
-  margin-top: 2rem;
+  color: #ffffff;
+  margin-top: 3rem;
   font-size: 0.9rem;
 }
