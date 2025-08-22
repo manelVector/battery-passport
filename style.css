@@ -90,6 +90,13 @@ footer {
   font-size: 0.9rem;
 }
 
+.accordion {
+  width: 100%;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
 .accordion-title {
   cursor: pointer;
   font-size: 1.2rem;       /* un poquito más grande */
