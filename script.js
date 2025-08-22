@@ -105,6 +105,17 @@
                 <p><b>Negative Events:</b> ${item.performance_durability.negative_events}</p>
             </div>
             </div>
+            
+            <img src="Captura de pantalla 2025-08-22 103200.png" usemap="#image-map" class="interactive-img">
+
+            <map name="image-map">
+              <area 
+                alt="Battery Pack 01"
+                title="Battery Pack 01"
+                href="index.html?id=PACK01"
+                coords="332,180,47,136"
+                shape="rect">
+            </map>
 
             <div class="pack-grid">
             ${item.cells.map((cellId, i) => `<a href="index.html?id=${cellId}" class="cell-button">Cell ${i+1}</a>`).join("")}
