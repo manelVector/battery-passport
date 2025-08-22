@@ -109,31 +109,28 @@
             <img src="media/BatPack.png" usemap="#image-map">
 
             <map name="image-map">
-                <area target="" alt="Cell10" title="Cell10" href="index.html?id=BESS01" coords="126,106,561,296" shape="rect">
-                <area target="" alt="Cell9" title="Cell9" href="" coords="128,324,565,515" shape="rect">
-                <area target="" alt="Cell8" title="Cell8" href="" coords="133,544,562,734" shape="rect">
-                <area target="" alt="Cell7" title="Cell7" href="" coords="134,765,573,950" shape="rect">
-                <area target="" alt="Cell6" title="Cell6" href="" coords="135,987,562,1170" shape="rect">
-                <area target="" alt="Cell5" title="Cell5" href="" coords="136,1203,562,1396" shape="rect">
-                <area target="" alt="Cell4" title="Cell4" href="" coords="136,1423,564,1616" shape="rect">
-                <area target="" alt="Cell3" title="Cell3" href="" coords="138,1643,570,1833" shape="rect">
-                <area target="" alt="Cell2" title="Cell2" href="" coords="135,1863,565,2055" shape="rect">
-                <area target="" alt="Cell1" title="Cell1" href="" coords="135,2082,564,2274" shape="rect">
-                <area target="" alt="Cell20" title="Cell20" href="" coords="653,2081,1085,2274" shape="rect">
-                <area target="" alt="Cell19" title="Cell19" href="" coords="648,1863,1081,2054" shape="rect">
-                <area target="" alt="Cell18" title="Cell18" href="" coords="655,1645,1079,1836" shape="rect">
-                <area target="" alt="Cell17" title="Cell17" href="" coords="653,1420,1082,1614" shape="rect">
-                <area target="" alt="Cell16" title="Cell16" href="" coords="651,1203,1080,1399" shape="rect">
-                <area target="" alt="Cell15" title="Cell15" href="" coords="654,982,1078,1177" shape="rect">
-                <area target="" alt="Cell14" title="Cell14" href="" coords="656,765,1079,955" shape="rect">
-                <area target="" alt="Cell13" title="Cell13" href="" coords="650,545,1079,734" shape="rect">
-                <area target="" alt="Cell12" title="Cell12" href="" coords="653,323,1081,518" shape="rect">
-                <area target="" alt="Cell11" title="Cell11" href="" coords="651,108,1084,294" shape="rect">
+                <area target="" alt="Cell10" title="Cell10" href="index.html?id=${item.cells[0]}" coords="126,106,561,296" shape="rect">
+                <area target="" alt="Cell9" title="Cell9" href="index.html?id=${item.cells[0]}" coords="128,324,565,515" shape="rect">
+                <area target="" alt="Cell8" title="Cell8" href="index.html?id=${item.cells[0]}" coords="133,544,562,734" shape="rect">
+                <area target="" alt="Cell7" title="Cell7" href="index.html?id=${item.cells[0]}" coords="134,765,573,950" shape="rect">
+                <area target="" alt="Cell6" title="Cell6" href="index.html?id=${item.cells[0]}" coords="135,987,562,1170" shape="rect">
+                <area target="" alt="Cell5" title="Cell5" href="index.html?id=${item.cells[0]}" coords="136,1203,562,1396" shape="rect">
+                <area target="" alt="Cell4" title="Cell4" href="index.html?id=${item.cells[0]}" coords="136,1423,564,1616" shape="rect">
+                <area target="" alt="Cell3" title="Cell3" href="index.html?id=${item.cells[0]}" coords="138,1643,570,1833" shape="rect">
+                <area target="" alt="Cell2" title="Cell2" href="index.html?id=${item.cells[0]}" coords="135,1863,565,2055" shape="rect">
+                <area target="" alt="Cell1" title="Cell1" href="index.html?id=${item.cells[0]}" coords="135,2082,564,2274" shape="rect">
+                <area target="" alt="Cell20" title="Cell20" href="index.html?id=${item.cells[0]}" coords="653,2081,1085,2274" shape="rect">
+                <area target="" alt="Cell19" title="Cell19" href="index.html?id=${item.cells[0]}" coords="648,1863,1081,2054" shape="rect">
+                <area target="" alt="Cell18" title="Cell18" href="index.html?id=${item.cells[0]}" coords="655,1645,1079,1836" shape="rect">
+                <area target="" alt="Cell17" title="Cell17" href="index.html?id=${item.cells[0]}" coords="653,1420,1082,1614" shape="rect">
+                <area target="" alt="Cell16" title="Cell16" href="index.html?id=${item.cells[0]}" coords="651,1203,1080,1399" shape="rect">
+                <area target="" alt="Cell15" title="Cell15" href="index.html?id=${item.cells[0]}" coords="654,982,1078,1177" shape="rect">
+                <area target="" alt="Cell14" title="Cell14" href="index.html?id=${item.cells[0]}" coords="656,765,1079,955" shape="rect">
+                <area target="" alt="Cell13" title="Cell13" href="index.html?id=${item.cells[0]}" coords="650,545,1079,734" shape="rect">
+                <area target="" alt="Cell12" title="Cell12" href="index.html?id=${item.cells[0]}" coords="653,323,1081,518" shape="rect">
+                <area target="" alt="Cell11" title="Cell11" href="index.html?id=${item.cells[0]}" coords="651,108,1084,294" shape="rect">
             </map>
 
-            <div class="pack-grid">
-            ${item.cells.map((cellId, i) => `<a href="index.html?id=${cellId}" class="cell-button">Cell ${i+1}</a>`).join("")}
-            </div>
         `;
         } else if (item.type === "bess") {
           html = `
