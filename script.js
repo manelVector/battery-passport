@@ -106,7 +106,7 @@
             </div>
             </div>
 
-            <div class="cell-grid">
+            <div class="pack-grid">
             ${item.cells.map((cellId, i) => `<a href="index.html?id=${cellId}" class="cell-button">Cell ${i+1}</a>`).join("")}
             </div>
         `;
