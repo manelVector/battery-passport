@@ -128,9 +128,8 @@ footer {
   max-height: 1000px; /* lo suficientemente grande para el contenido */
 }
 
-.interactive-img {
+img[usemap] {
   max-width: 100%;
   height: auto;
   display: block;
-  margin: 0 auto;
 }
