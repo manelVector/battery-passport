@@ -106,7 +106,7 @@
             </div>
             </div>
 
-            <img src="BatPack.png" usemap="#image-map">
+            <img src="media/BatPack.png" usemap="#image-map">
 
             <map name="image-map">
                 <area target="" alt="Cell10" title="Cell10" href="index.html?id=BESS01" coords="126,106,561,296" shape="rect">
