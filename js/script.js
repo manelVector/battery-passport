@@ -56,6 +56,53 @@ Promise.all([
               <p><b>Battery Status:</b> ${item.general_information.battery_status}</p>
           </div>
         </div>
+                  <div class="accordion">
+          <div class="accordion-title">Labels and Certifications</div>
+          <div class="accordion-content">
+              <p><b>Symbols & Labels:</b> ${item.labels_certifications.symbols_labels.join(", ")}</p>
+              <p><b>Meaning:</b> ${item.labels_certifications.meaning}</p>
+              <p><b>Declaration of Conformity:</b> ${item.labels_certifications.declaration_conformity}</p>
+              <p><b>Compliance of Test Results:</b> ${item.labels_certifications.test_compliance}</p>
+          </div>
+          </div>
+
+          <div class="accordion">
+          <div class="accordion-title">Carbon Footprint</div>
+          <div class="accordion-content">
+              <p><b>Carbon Footprint:</b> ${item.carbon_footprint.carbon_footprint}</p>
+              <p><b>Weblink to CF Study:</b> <a href="${item.carbon_footprint.weblink}" target="_blank">Study</a></p>
+              <p><b>CF Performance Class:</b> ${item.carbon_footprint.performance_class}</p>
+          </div>
+          </div>
+
+          <div class="accordion">
+          <div class="accordion-title">Supply Chain Due Diligence</div>
+          <div class="accordion-content">
+              <p><b>Due Diligence Report:</b> ${item.supply_chain.due_diligence_report}</p>
+          </div>
+          </div>
+
+          <div class="accordion">
+          <div class="accordion-title">Materials and Composition</div>
+          <div class="accordion-content">
+              <p><b>Hazardous Substances:</b> ${item.materials_composition.hazardous_substances}</p>
+              <p><b>Battery Chemistry:</b> ${item.materials_composition.battery_chemistry}</p>
+              <p><b>Critical Raw Materials:</b> ${item.materials_composition.critical_raw_materials.join(", ")}</p>
+              <p><b>Cathode:</b> ${item.materials_composition.materials_detailed.cathode}</p>
+              <p><b>Anode:</b> ${item.materials_composition.materials_detailed.anode}</p>
+              <p><b>Electrolyte:</b> ${item.materials_composition.materials_detailed.electrolyte}</p>
+          </div>
+          </div>
+
+          <div class="accordion">
+          <div class="accordion-title">Circularity & Resource Efficiency</div>
+          <div class="accordion-content">
+              <p><b>Recycled Content Shares:</b> ${item.circularity_resource_efficiency.recycled_content}</p>
+              <p><b>Manuals:</b> <a href="${item.circularity_resource_efficiency.manuals_disassembly}" target="_blank">Disassembly Manual</a></p>
+              <p><b>Spare Parts:</b> ${item.circularity_resource_efficiency.spare_parts}</p>
+              <p><b>Safety Measures:</b> ${item.circularity_resource_efficiency.safety_measures}</p>
+          </div>
+          </div>
 
         <img src="media/BatPack.png" usemap="#image-map">
         <map name="image-map">
