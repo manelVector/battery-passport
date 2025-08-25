@@ -1,0 +1,347 @@
+{
+  "CELL_000001": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000002": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000003": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000004": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000005": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000006": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000007": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000008": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000009": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000010": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000011": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000012": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000013": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000014": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000015": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000016": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000017": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000018": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000019": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000020": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u00ce\u00a9"
+    }
+  },
+  "CELL_000021": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u03a9"
+    }
+  },
+  "CELL_000022": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u03a9"
+    }
+  },
+  "CELL_000023": {
+    "GeneralInfo": {
+      "manufacturer": "LYTH",
+      "manufacture_date": "2024-06-15",
+      "carbon_footprint": "",
+      "model": "L173F220A",
+      "capacity": "220 Ah",
+      "voltage": "3.7 V"
+    },
+    "EolTest": {
+      "EOLvoltage": "3.7 V",
+      "EOLcurrent": "246,28 A",
+      "EOLresistance": "0,228 \u03a9"
+    }
+  }
+}
