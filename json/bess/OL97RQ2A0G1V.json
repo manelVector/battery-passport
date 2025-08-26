@@ -1,0 +1,26 @@
+{
+  "OL97RQ2A0G1V": {
+    "description": "Laboratory prototype BESS system",
+    "batpacks": [
+      "BP8557",
+      "BP7775",
+      "BP9462",
+      "BP3367",
+      "BP3647",
+      "BP2497",
+      "BP9292",
+      "BP6395",
+      "BP8061",
+      "BP6270",
+      "BP5413",
+      "BP6593",
+      "BP1358",
+      "BP1926"
+    ],
+    "location": "Bcn, Spain",
+    "power": "500 kW",
+    "energy": "1 MWh",
+    "uuid": "OL97RQ2A0G1V",
+    "passport_uuid": "SRCGPP2J66GH"
+  }
+}

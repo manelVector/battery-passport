@@ -1,0 +1,26 @@
+{
+  "BESS_TEMPLATE": {
+    "description": "Laboratory prototype BESS system",
+    "batpacks": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "location": "Bcn, Spain",
+    "power": "500 kW",
+    "energy": "1 MWh",
+    "uuid": "0",
+    "passport_uuid": "0"
+  }
+}

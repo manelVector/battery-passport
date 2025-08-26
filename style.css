@@ -66,6 +66,27 @@ header .logo {
   text-align: center;
 }
 
+    .content {
+      
+      /* Oculto inicialmente */
+      opacity: 0;
+      transform: translateY(20px);
+
+      /* Aparece al cargar */
+      animation: aparecer 1s ease-out forwards;
+    }
+
+    @keyframes aparecer {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
 .back-button:hover,
 .pack-button:hover,
 .cell-button:hover,
