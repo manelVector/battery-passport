@@ -1,62 +1,16 @@
-const params = new URLSearchParams(window.location.search);
-const id = params.get("id");
-const content = document.getElementById("content");
+// renderBP.js
+//import { getCellCoords } from "./utils.js";
 
-// 🔹 Rutas de carpetas
-const folders = {
-  bess: "json/bess/",
-  bp: "json/bp/",
-  cell: "json/cell/"
-};
+/**
+ * Renderiza un Battery Pack en formato HTML dinámico
+ * @param {string} id - ID del Battery Pack
+ * @param {object} data - Datos JSON del Battery Pack
+ * @returns {string} - HTML generado
+ */
 
-async function loadJSONForID(id) {
-  for (const [type, folder] of Object.entries(folders)) {
-    try {
-      const res = await fetch(`${folder}${id}.json`);
-      if (!res.ok) continue;  // ignorar 404
-      const data = await res.json(); // solo parsear si existe
-      return { type, data };
-    } catch(e) {
-      // error de red o JSON mal formado, seguir con la siguiente carpeta
-      continue;
-    }
-  }
-  return null; // si no se encuentra en ninguna carpeta
-}
-
-
-
-// 🔹 Función principal
-(async () => {
-  if (!id) {
-    content.innerHTML = "<p>No ID provided.</p>";
-    return;
-  }
-
-  const result = await loadJSONForID(id);
-  if (!result) {
-    content.innerHTML = "<p>ID not found in any folder.</p>";
-    return;
-  }
-
-  const { type, data } = result;
-  let html = "";
-
-  if (type === "cell") {
-    html += `<h2>Cell: ${id}</h2>`;
-    html += `<p>Manufacturer: ${data.manufacturer}</p>`;
-    html += `<p>Model: ${data.model}</p>`;
-    html += `<p>Serial: ${data.serial}</p>`;
-    html += `<p>Carbon Footprint: ${data.carbon_footprint}</p>`;
-    html += `<p>Capacity: ${data.capacity}</p>`;
-    html += `<p>Voltage: ${data.voltage}</p>`;
-
-    html += `<div class ="back-button" onclick="history.back()">⬅ Back</div>`;
-  }
-
-  if (type === "bp") {
-        // 🔹 Encabezado principal
-    html += `<h2>Battery Pack: ${id}</h2>`;
+export function renderBP(id, data) {
+        
+    let html = `<h2>Battery Pack: ${id}</h2>`;
     html += `<p><b>Battery Passport ID:</b> ${data.id_product_data.battery_passport_id}</p>`;
     html += `<p><b>Model:</b> ${data.id_product_data.model}</p>`;
     html += `<p><b>Serial:</b> ${data.id_product_data.serial}</p>`;
@@ -171,48 +125,8 @@ async function loadJSONForID(id) {
 
     // 🔹 Botón Back simple
     html += `<div class="back-button" onclick="history.back()">⬅ Back</div>`;
-  }
-
-  if (type === "bess") {
-
-    html += `<p><b>BESS ID:</b> ${id}</p>`;
-    html += `<p><b>Battery Passport ID:</b> ${data.passport_uuid}</p>`;
-    html += `<div class="accordion">`;
-    html += `  <div class="accordion-title">General Information</div>`;
-    html += `  <div class="accordion-content">`;
-    html += `      <p><b>Serial Number:</b> ${data.serial}</p>`;
-    html += `      <p><b>Description:</b> ${data.description}</p>`;
-    html += `      <p><b>Location:</b> ${data.location}</p>`;
-    html += `      <p><b>Power:</b> ${data.power}</p>`;
-    html += `      <p><b>Energy:</b> ${data.energy}</p>`;
-    html += `  </div>`;
-    html += `</div>`;
-
-    html += `<img src="media/BessString.png" usemap="#image-map">`;
-    html += `<map name="image-map">`;
-    data.batpacks.forEach((bpId, i) => {
-      html += `<area target="" alt="BP${i+1}" title="BP${i+1}" href="index.html?id=${bpId}" coords="${getBPcoords(i)}" shape="rect">`;
-    });
-    html += `</map>`;
-    html += `</img>`;
-  }
-
-  content.innerHTML = html;
-
-  
-      // Activar los desplegables
-  document.querySelectorAll('.accordion-title').forEach(title => {
-    title.addEventListener('click', () => {
-      const content = title.nextElementSibling;
-      content.classList.toggle('open');
-      title.classList.toggle('active');
-    });
-  });
-  if (typeof imageMapResize === "function") imageMapResize();
-})();
-
-// 🔹 Coordenadas de ejemplo para los BP en BESS
-
+    return html
+}
 
 function getCellCoords(index) {
   const coords = [
@@ -236,14 +150,6 @@ function getCellCoords(index) {
     "655,1645,1079,1836",//18
     "648,1863,1081,2054",//19
     "653,2081,1085,2274"//20
-  ];
-  return coords[index] || "0,0,0,0";
-}
-function getBPcoords(index) {
-  const coords = [
-    "105,80,542,296","109,340,537,557","110,604,534,828","112,869,533,1092","112,1138,537,1360",
-    "108,1400,534,1623","105,1668,534,1890","638,74,1066,299","637,338,1066,561","637,607,1070,828",
-    "641,869,1067,1094","642,1135,1068,1355","642,1403,1060,1624","636,1667,1060,1888"
   ];
   return coords[index] || "0,0,0,0";
 }
