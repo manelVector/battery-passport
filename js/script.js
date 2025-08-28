@@ -1,177 +1,219 @@
 const params = new URLSearchParams(window.location.search);
 const id = params.get("id");
+const content = document.getElementById("content");
 
-// Cargamos los tres JSON en paralelo
-Promise.all([
-  fetch("cells_data.json").then(res => res.json()),
-  fetch("bp_data.json").then(res => res.json()),
-  fetch("bess_data.json").then(res => res.json())
-]).then(([cellsData, batpacksData, bessData]) => {
-  const allData = { ...cellsData, ...batpacksData, ...bessData };
-  const content = document.getElementById("content");
+// 🔹 Rutas de carpetas
+const folders = {
+  bess: "json/bess/",
+  bp: "json/bp/",
+  cell: "json/cell/"
+};
 
-  if (id && allData[id]) {
-    const item = allData[id];
-    let html = "";
-
-    // Detectamos tipo
-    let type = "cell";
-    if (item.general_information) type = "batpack";
-    if (item.batpacks) type = "bess";
-
-    if (type === "cell") {
-      html = `
-        <div class="accordion">
-          <div class="accordion-title">General Information</div>
-          <div class="accordion-content">
-            <p><b>Manufacturer:</b> ${item.GeneralInfo.manufacturer}</p>
-            <p><b>Model:</b> ${item.GeneralInfo.model}</p>
-            <p><b>Manufacture Date:</b> ${item.GeneralInfo.manufacture_date}</p>
-            <p><b>Carbon Footprint:</b> ${item.GeneralInfo.carbon_footprint}</p>
-            <p><b>Capacity:</b> ${item.GeneralInfo.capacity}</p>
-            <p><b>Voltage:</b> ${item.GeneralInfo.voltage}</p>
-          </div>
-        </div>
-
-        <div class="accordion">
-          <div class="accordion-title">EOL Tests</div>
-          <div class="accordion-content">
-            <p><b>Voltage:</b> ${item.EolTest.EOLvoltage}</p>
-            <p><b>Resistance:</b> ${item.EolTest.EOLresistance}</p>
-            <p><b>Current:</b> ${item.EolTest.EOLcurrent}</p>
-          </div>
-        </div>
-      `;
-    } else if (type === "batpack") {
-      html = `
-        <p><b>Battery Pack ID:</b> ${id}</p>
-        <p><b>Battery Passport ID:</b> ${item.passport_uuid}</p>          
-
-        <div class="accordion">
-          <div class="accordion-title">General Information</div>
-          <div class="accordion-content">
-              <p><b>Manufacturing Info:</b> ${item.general_information.manufacturing_info}</p>
-              <p><b>Battery Category:</b> ${item.general_information.battery_category}</p>
-              <p><b>Battery Weight:</b> ${item.general_information.battery_weight}</p>
-              <p><b>Battery Status:</b> ${item.general_information.battery_status}</p>
-          </div>
-        </div>
-                  <div class="accordion">
-          <div class="accordion-title">Labels and Certifications</div>
-          <div class="accordion-content">
-              <p><b>Symbols & Labels:</b> ${item.labels_certifications.symbols_labels.join(", ")}</p>
-              <p><b>Meaning:</b> ${item.labels_certifications.meaning}</p>
-              <p><b>Declaration of Conformity:</b> ${item.labels_certifications.declaration_conformity}</p>
-              <p><b>Compliance of Test Results:</b> ${item.labels_certifications.test_compliance}</p>
-          </div>
-          </div>
-
-          <div class="accordion">
-          <div class="accordion-title">Carbon Footprint</div>
-          <div class="accordion-content">
-              <p><b>Carbon Footprint:</b> ${item.carbon_footprint.carbon_footprint}</p>
-              <p><b>Weblink to CF Study:</b> <a href="${item.carbon_footprint.weblink}" target="_blank">Study</a></p>
-              <p><b>CF Performance Class:</b> ${item.carbon_footprint.performance_class}</p>
-          </div>
-          </div>
-
-          <div class="accordion">
-          <div class="accordion-title">Supply Chain Due Diligence</div>
-          <div class="accordion-content">
-              <p><b>Due Diligence Report:</b> ${item.supply_chain.due_diligence_report}</p>
-          </div>
-          </div>
-
-          <div class="accordion">
-          <div class="accordion-title">Materials and Composition</div>
-          <div class="accordion-content">
-              <p><b>Hazardous Substances:</b> ${item.materials_composition.hazardous_substances}</p>
-              <p><b>Battery Chemistry:</b> ${item.materials_composition.battery_chemistry}</p>
-              <p><b>Critical Raw Materials:</b> ${item.materials_composition.critical_raw_materials.join(", ")}</p>
-              <p><b>Cathode:</b> ${item.materials_composition.materials_detailed.cathode}</p>
-              <p><b>Anode:</b> ${item.materials_composition.materials_detailed.anode}</p>
-              <p><b>Electrolyte:</b> ${item.materials_composition.materials_detailed.electrolyte}</p>
-          </div>
-          </div>
-
-          <div class="accordion">
-          <div class="accordion-title">Circularity & Resource Efficiency</div>
-          <div class="accordion-content">
-              <p><b>Recycled Content Shares:</b> ${item.circularity_resource_efficiency.recycled_content}</p>
-              <p><b>Manuals:</b> <a href="${item.circularity_resource_efficiency.manuals_disassembly}" target="_blank">Disassembly Manual</a></p>
-              <p><b>Spare Parts:</b> ${item.circularity_resource_efficiency.spare_parts}</p>
-              <p><b>Safety Measures:</b> ${item.circularity_resource_efficiency.safety_measures}</p>
-          </div>
-          </div>
-
-        <img src="media/BatPack.png" usemap="#image-map">
-        <map name="image-map">
-          ${item.cells.map((cellId, i) => `
-            <area target="" alt="Cell${i+1}" title="Cell${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">
-          `).join("")}
-        </map>
-      `;
-    } else if (type === "bess") {
-      html = `
-        <p><b>BESS ID:</b> ${id}</p>
-        <p><b>Battery Passport ID:</b> ${item.passport_uuid}</p>
-        <div class="accordion">
-          <div class="accordion-title">General Information</div>
-          <div class="accordion-content">
-              <p><b>UUID:</b> ${item.uuid}</p>
-              <p><b>Description:</b> ${item.description}</p>
-              <p><b>Location:</b> ${item.location}</p>
-              <p><b>Power:</b> ${item.power}</p>
-              <p><b>Energy:</b> ${item.energy}</p>
-          </div>
-        </div>
-
-        <img src="media/BessString.png" usemap="#image-map">
-        <map name="image-map">
-          ${item.batpacks.map((bpId, i) => `
-            <area target="" alt="BP${i+1}" title="BP${i+1}" href="index.html?id=${bpId}" coords="${getBPcoords(i)}" shape="rect">
-          `).join("")}
-        </map>
-      `;
+async function loadJSONForID(id) {
+  for (const [type, folder] of Object.entries(folders)) {
+    try {
+      const res = await fetch(`${folder}${id}.json`);
+      if (!res.ok) continue;  // ignorar 404
+      const data = await res.json(); // solo parsear si existe
+      return { type, data };
+    } catch(e) {
+      // error de red o JSON mal formado, seguir con la siguiente carpeta
+      continue;
     }
-
-    // Botón volver dinámico
-    const parent = findParent(id, allData);
-    if (parent) {
-      html += `
-        <a href="index.html?id=${parent}" class="back-button">
-          ⬅ Back to ${parent}
-        </a>
-      `;
-    }
-
-    content.innerHTML = html;
-
-    if (typeof imageMapResize === 'function') imageMapResize();
-
-    // Activar los desplegables
-    document.querySelectorAll('.accordion-title').forEach(title => {
-      title.addEventListener('click', () => {
-        const content = title.nextElementSibling;
-        content.classList.toggle('open');
-        title.classList.toggle('active');
-      });
-    });
-  } else {
-    content.innerHTML = "<p>ID not found in the database.</p>";
   }
-});
-
-// 🔹 Helper para encontrar el padre
-function findParent(childId, allData) {
-  for (const [key, val] of Object.entries(allData)) {
-    if (val.cells && val.cells.includes(childId)) return key; // batpack -> cell
-    if (val.batpacks && val.batpacks.includes(childId)) return key; // bess -> batpack
-  }
-  return null;
+  return null; // si no se encuentra en ninguna carpeta
 }
 
-// 🔹 Helpers para mantener tus coords originales
+
+
+// 🔹 Función principal
+(async () => {
+  if (!id) {
+    content.innerHTML = "<p>No ID provided.</p>";
+    return;
+  }
+
+  const result = await loadJSONForID(id);
+  if (!result) {
+    content.innerHTML = "<p>ID not found in any folder.</p>";
+    return;
+  }
+
+  const { type, data } = result;
+  let html = "";
+
+  if (type === "cell") {
+    html += `<h2>Cell: ${id}</h2>`;
+    html += `<p>Manufacturer: ${data.manufacturer}</p>`;
+    html += `<p>Model: ${data.model}</p>`;
+    html += `<p>Serial: ${data.serial}</p>`;
+    html += `<p>Carbon Footprint: ${data.carbon_footprint}</p>`;
+    html += `<p>Capacity: ${data.capacity}</p>`;
+    html += `<p>Voltage: ${data.voltage}</p>`;
+
+    html += `<div class ="back-button" onclick="history.back()">⬅ Back</div>`;
+  }
+
+  if (type === "bp") {
+        // 🔹 Encabezado principal
+    html += `<h2>Battery Pack: ${id}</h2>`;
+    html += `<p><b>Battery Passport ID:</b> ${data.id_product_data.battery_passport_id}</p>`;
+    html += `<p><b>Model:</b> ${data.id_product_data.model}</p>`;
+    html += `<p><b>Serial:</b> ${data.id_product_data.serial}</p>`;
+    html += `<p><b>Battery Status:</b> ${data.id_product_data.battery_status}</p>`;
+
+    // 🔹 Acordeón: General Information
+    html += `
+    <div class="accordion">
+      <div class="accordion-title">General Information</div>
+      <div class="accordion-content">
+          <p><b>Manufacturer:</b> ${data.id_product_data.manufacturer}</p>
+          <p><b>Address:</b> ${data.id_product_data.address}</p>
+          <p><b>Web:</b> <a href="${data.id_product_data.web_address}" target="_blank">${data.id_product_data.web_address}</a></p>
+          <p><b>Email:</b> <a href="mailto:${data.id_product_data.mail_address}">${data.id_product_data.mail_address}</a></p>
+          <p><b>NIF:</b> ${data.id_product_data.NIF}</p>
+          <p><b>VAT:</b> ${data.id_product_data.VAT}</p>
+          <p><b>Manufacturing Place:</b> ${data.id_product_data.manufacturing_place}</p>
+          <p><b>Manufacturing Date:</b> ${data.id_product_data.manufacturing_date}</p>
+          <p><b>Warranty Period:</b> ${data.id_product_data.warranty_period}</p>
+          <p><b>Battery Category:</b> ${data.id_product_data.battery_category}</p>
+          <p><b>Battery Weight:</b> ${data.id_product_data.battery_weight}</p>
+          <p><b>Battery Status:</b> ${data.id_product_data.battery_status}</p>
+      </div>
+    </div>
+    `;
+
+    // 🔹 Acordeón: Labels and Certifications
+    html += `
+    <div class="accordion">
+      <div class="accordion-title">Labels and Certifications</div>
+      <div class="accordion-content">
+          <p><b>Symbols & Labels:</b> ${data.symbols_labels_doc_conformity.symbols_labels.join(", ")}</p>
+          <p><b>Meaning:</b> ${data.symbols_labels_doc_conformity.meaning}</p>
+          <p><b>CE Doc:</b> ${data.symbols_labels_doc_conformity.CE_doc}</p>
+          <p><b>Extinguishing Agent:</b> ${data.symbols_labels_doc_conformity["extinguishing agent"]}</p>
+          <p><b>Carbon Footprint Label:</b> ${data.symbols_labels_doc_conformity.carbon_footprint_label}</p>
+          <p><b>Test Compliance:</b> ${data.symbols_labels_doc_conformity.test_compliance}</p>
+      </div>
+    </div>
+    `;
+
+    // 🔹 Acordeón: Carbon Footprint
+    html += `
+    <div class="accordion">
+      <div class="accordion-title">Carbon Footprint</div>
+      <div class="accordion-content">
+          <p><b>Carbon Footprint:</b> ${data.battery_carbon_footprint.carbon_footprint}</p>
+          <p><b>Raw Material Acquisition:</b> ${data.battery_carbon_footprint.raw_material_acquisition_and_pre_processing_lifecycle_stage}</p>
+          <p><b>Manufacturing Stage:</b> ${data.battery_carbon_footprint["main_product_production/manufacturing_lifecycle_stage"]}</p>
+          <p><b>Distribution Stage:</b> ${data.battery_carbon_footprint.distribution_lifecycle_stage}</p>
+          <p><b>End of Life & Recycling:</b> ${data.battery_carbon_footprint.end_of_life_and_recycling_lifecycle_stage}</p>
+          <p><b>CF Performance Class:</b> ${data.battery_carbon_footprint.carbon_footprint_performance_class}</p>
+          <p><b>Weblink:</b> <a href="${data.battery_carbon_footprint.study_weblink}" target="_blank">Study</a></p>
+      </div>
+    </div>
+    `;
+
+    // 🔹 Acordeón: Supply Chain Due Diligence
+    html += `
+    <div class="accordion">
+      <div class="accordion-title">Supply Chain Due Diligence</div>
+      <div class="accordion-content">
+          <p>${data.supply_chain_due_diligence.Information_of_due_diligence_report}</p>
+      </div>
+    </div>
+    `;
+
+    // 🔹 Acordeón: Materials and Composition
+    html += `
+    <div class="accordion">
+      <div class="accordion-title">Materials and Composition</div>
+      <div class="accordion-content">
+          <p><b>Battery Chemistry:</b> ${data.battery_materials_and_composition.battery_chemistry}</p>
+          <p><b>Critical Raw Materials:</b> ${data.battery_materials_and_composition.critical_raw_materials.join(", ")}</p>
+          <p><b>Materials Used:</b></p>
+          <ul>
+            <li><b>Cathode:</b> ${data.battery_materials_and_composition.materials_used.cathode}</li>
+            <li><b>Anode:</b> ${data.battery_materials_and_composition.materials_used.anode}</li>
+            <li><b>Electrolyte:</b> ${data.battery_materials_and_composition.materials_used.electrolyte}</li>
+          </ul>
+          <p><b>Hazardous Substances:</b> ${data.battery_materials_and_composition.hazardous_substances.join(", ")}</p>
+          <p><b>Impact:</b> Environment: ${data.battery_materials_and_composition.impact.environment}, Human Health: ${data.battery_materials_and_composition.impact.human_health}, Safety: ${data.battery_materials_and_composition.impact.safety}, Persons: ${data.battery_materials_and_composition.impact.persons}</p>
+      </div>
+    </div>
+    `;
+
+    // 🔹 Acordeón: Circularity & Resource Efficiency
+    html += `
+    <div class="accordion">
+      <div class="accordion-title">Circularity & Resource Efficiency</div>
+      <div class="accordion-content">
+          <p><b>Manuals:</b> ${data.circularity_and_resource_efficiency.dismantling_information.manuals}</p>
+          <p><b>Part Numbers:</b> ${data.circularity_and_resource_efficiency.dismantling_information.part_numbers.join(", ")}</p>
+          <p><b>Spare Parts Sources:</b> ${data.circularity_and_resource_efficiency.dismantling_information.spare_parts_sources}</p>
+          <p><b>Safety Measures:</b> ${data.circularity_and_resource_efficiency.dismantling_information.safety_measures.join(", ")}</p>
+          <p><b>Pre-consumer Recycled Content:</b> Nickel: ${data.circularity_and_resource_efficiency.pre_consumer_recycled_content.nickel_share}, Cobalt: ${data.circularity_and_resource_efficiency.pre_consumer_recycled_content.cobalt_share}, Lithium: ${data.circularity_and_resource_efficiency.pre_consumer_recycled_content.lithium_share}, Lead: ${data.circularity_and_resource_efficiency.pre_consumer_recycled_content.lead_share}</p>
+          <p><b>Post-consumer Recycled Content:</b> Nickel: ${data.circularity_and_resource_efficiency.post_consumer_recycled_content.nickel_share}, Cobalt: ${data.circularity_and_resource_efficiency.post_consumer_recycled_content.cobalt_share}, Lithium: ${data.circularity_and_resource_efficiency.post_consumer_recycled_content.lithium_share}, Lead: ${data.circularity_and_resource_efficiency.post_consumer_recycled_content.lead_share}</p>
+          <p><b>Renewable Content Share:</b> ${data.circularity_and_resource_efficiency.renewable_content_share}</p>
+          <p><b>End User Role:</b> Waste Prevention: ${data.circularity_and_resource_efficiency.end_user_role.waste_prevention}, Separate Collection: ${data.circularity_and_resource_efficiency.end_user_role.separate_collection}</p>
+          <p><b>Battery Collection & End of Life:</b> Collection: ${data.circularity_and_resource_efficiency.battery_collection_and_end_of_life.collection}, Second Life: ${data.circularity_and_resource_efficiency.battery_collection_and_end_of_life.second_life_preparation}, Treatment: ${data.circularity_and_resource_efficiency.battery_collection_and_end_of_life.treatment}</p>
+      </div>
+    </div>
+    `;
+        // 🔹 Imagen con celdas clicables
+    html += `<img src="media/BatPack.png" usemap="#image-map">`;
+    html += `<map name="image-map">`;
+    Object.entries(data.cell_info.cells_id).forEach(([key, cellId], i) => {
+      html += `<area target="" alt="${key}" title="${key}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
+    });
+    html += `</map>`;
+    html += `</img>`;
+
+    // 🔹 Botón Back simple
+    html += `<div class="back-button" onclick="history.back()">⬅ Back</div>`;
+  }
+
+  if (type === "bess") {
+
+    html += `<p><b>BESS ID:</b> ${id}</p>`;
+    html += `<p><b>Battery Passport ID:</b> ${data.passport_uuid}</p>`;
+    html += `<div class="accordion">`;
+    html += `  <div class="accordion-title">General Information</div>`;
+    html += `  <div class="accordion-content">`;
+    html += `      <p><b>Serial Number:</b> ${data.serial}</p>`;
+    html += `      <p><b>Description:</b> ${data.description}</p>`;
+    html += `      <p><b>Location:</b> ${data.location}</p>`;
+    html += `      <p><b>Power:</b> ${data.power}</p>`;
+    html += `      <p><b>Energy:</b> ${data.energy}</p>`;
+    html += `  </div>`;
+    html += `</div>`;
+
+    html += `<img src="media/BessString.png" usemap="#image-map">`;
+    html += `<map name="image-map">`;
+    data.batpacks.forEach((bpId, i) => {
+      html += `<area target="" alt="BP${i+1}" title="BP${i+1}" href="index.html?id=${bpId}" coords="${getBPcoords(i)}" shape="rect">`;
+    });
+    html += `</map>`;
+    html += `</img>`;
+  }
+
+  content.innerHTML = html;
+
+  
+      // Activar los desplegables
+  document.querySelectorAll('.accordion-title').forEach(title => {
+    title.addEventListener('click', () => {
+      const content = title.nextElementSibling;
+      content.classList.toggle('open');
+      title.classList.toggle('active');
+    });
+  });
+  if (typeof imageMapResize === "function") imageMapResize();
+})();
+
+// 🔹 Coordenadas de ejemplo para los BP en BESS
+
+
 function getCellCoords(index) {
   const coords = [
     "135,2082,564,2274",//1   
@@ -197,7 +239,6 @@ function getCellCoords(index) {
   ];
   return coords[index] || "0,0,0,0";
 }
-
 function getBPcoords(index) {
   const coords = [
     "105,80,542,296","109,340,537,557","110,604,534,828","112,869,533,1092","112,1138,537,1360",

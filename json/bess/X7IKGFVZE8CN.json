@@ -1,0 +1,24 @@
+{
+    "description": "Laboratory prototype BESS system",
+    "batpacks": [
+        "3TZKSP5F8VIN",
+        "78BRYBKFYRXY",
+        "80H03OPR1FGV",
+        "8PE5843153DE",
+        "B52PR20AGWA4",
+        "CRBLNGIH1LOB",
+        "FSI1RTW05C4G",
+        "IS0P7ML52UKB",
+        "KWGF92JMJCKF",
+        "PKJAD84WTSYM",
+        "RL58VHS8W52B",
+        "TA9M2WAN6VSJ",
+        "VG1GRE54XURD",
+        "W7YL26JK7KC0"
+    ],
+    "location": "Bcn, Spain",
+    "power": "500 kW",
+    "energy": "1 MWh",
+    "serial": "X7IKGFVZE8CN",
+    "passport_uuid": "0"
+}

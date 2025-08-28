@@ -1,0 +1,186 @@
+{
+    "id_product_data": {
+        "battery_passport_id": "0",
+        "model": "Battery Pack",
+        "serial": "CRBLNGIH1LOB",
+        "batch": "0",
+        "manufacturer": "VECTOR ENERGY GLOBAL S.L.",
+        "address": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
+        "web_address": "https://vectorenergy.com/",
+        "mail_address": "info@vectorenergy.com",
+        "NIF": "B64702277",
+        "VAT": "ESB64702277",
+        "manufacturing_place": "Barcelona, Spain",
+        "manufacturing_date": "0",
+        "warranty_period": "2h",
+        "battery_category": "Industrial Battery",
+        "battery_weight": "130 Kg",
+        "battery_status": "Original"
+    },
+    "symbols_labels_doc_conformity": {
+        "symbols_labels": [
+            "CE",
+            "WEEE",
+            "UN38.3"
+        ],
+        "meaning": "CE: European Conformity, WEEE: Waste Electrical & Electronic Equipment, UN38.3: Transport Safety",
+        "CE_id": "none",
+        "CE_doc": "none https://example.com/carbon-study",
+        "extinguishing agent": "none",
+        "carbon_footprint_label": "none kg CO<sub>2</sub>eq",
+        "test_compliance": "none https://example.com/carbon-study"
+    },
+    "battery_carbon_footprint": {
+        "carbon_footprint": "none kg CO<sub>2</sub>eq",
+        "raw_material_acquisition_and_pre-processing_lifecycle_stage": "none",
+        "main_product_production/manufacturing_lifecycle_stage": "none",
+        "distribution_lifecycle_stage": "none",
+        "end_of_life_and_recycling_lifecycle_stage": "none",
+        "carbon_footprint_performance_class": "none",
+        "study_weblink": "none https://example.com/carbon-study"
+    },
+    "supply_chain_due_diligence": {
+        "Information_of_due_diligence_report": "none"
+    },
+    "battery_materials_and_composition": {
+        "battery_chemistry": "none",
+        "critical_raw_materials": [
+            "none",
+            "none",
+            "none"
+        ],
+        "materials_used": {
+            "cathode": "none",
+            "anode": "none",
+            "electrolyte": "none"
+        },
+        "hazardous_substances": [
+            "none",
+            "none",
+            "none"
+        ],
+        "impact": {
+            "environment": "none",
+            "human_health": "none",
+            "safety": "none",
+            "persons": "none"
+        }
+    },
+    "circularity_and_resource_efficiency": {
+        "dismantling_information": {
+            "manuals": "none",
+            "part_numbers": [
+                "none",
+                "none",
+                "none",
+                "none"
+            ],
+            "spare_parts_sources": "none",
+            "safety_measures": [
+                "none",
+                "none",
+                "none",
+                "none"
+            ]
+        },
+        "pre_consumer_recycled_content": {
+            "nickel_share": "none%",
+            "cobalt_share": "none%",
+            "lithium_share": "none%",
+            "lead_share": "none%"
+        },
+        "post_consumer_recycled_content": {
+            "nickel_share": "none%",
+            "cobalt_share": "none%",
+            "lithium_share": "none%",
+            "lead_share": "none%"
+        },
+        "renewable_content_share": "none%",
+        "end_user_role": {
+            "waste_prevention": "none",
+            "separate_collection": "none"
+        },
+        "battery_collection_and_end_of_life": {
+            "collection": "none",
+            "second_life_preparation": "none",
+            "treatment": "none"
+        }
+    },
+    "performance_and_durability": {
+        "capacity": {
+            "rated_capacity": "75 kWh",
+            "remaining_capacity": "dinamic",
+            "capacity_fade": "dinamic"
+        },
+        "voltage_and_power": {
+            "state_of_charge": "dinamic",
+            "minimum_voltage": "280 V",
+            "maximum_voltage": "420 V",
+            "nominal_voltage": "360 V",
+            "original_power_capability": "250 kW",
+            "remaining_power_capability": "dinamic",
+            "power_fade": "dinamic",
+            "maximum_permitted_battery_power": "260 kW"
+        },
+        "energy_efficiency": {
+            "initial_round_trip_efficiency": "dinamic",
+            "round_trip_efficiency_at_50pct_cycle_life": "dinamic",
+            "remaining_round_trip_efficiency": "dinamic",
+            "energy_round_trip_efficiency_fade": "dinamic"
+        },
+        "self_discharge_and_resistance": {
+            "self_discharge_rate_evolution": "dinamic",
+            "initial_internal_resistance_cell": "dinamic",
+            "initial_internal_resistance_pack": "dinamic",
+            "internal_resistance_increase_pack": "dinamic"
+        },
+        "lifetime": {
+            "expected_calendar_life_years": "12 años",
+            "expected_cycle_life": "2500 ciclos",
+            "number_of_full_cycles": "dinamic",
+            "cycle_life_reference_test": "IEC 62660-1",
+            "c_rate_cycle_life_test": "1C"
+        },
+        "temperature_and_throughput": {
+            "capacity_throughput": "580 MWh",
+            "temperature_idle_range": {
+                "lower_boundary": "-20 °C",
+                "upper_boundary": "45 °C"
+            },
+            "time_above_upper_boundary": "dinamic",
+            "time_below_lower_boundary": "dinamic",
+            "time_charging_above_boundary": "dinamic",
+            "time_charging_below_boundary": "dinamic"
+        },
+        "events_and_safety": {
+            "number_of_deep_discharge_events": "dinamic",
+            "number_of_overcharge_events": "dinamic",
+            "accidents_information": "dinamic"
+        }
+    },
+    "cell_info": {
+        "cell_model": "LITH",
+        "cells_id": {
+            "CELL_1": "5470IYECKCQX",
+            "CELL_2": "633POHLOU027",
+            "CELL_3": "8AABZK3Q3ZQ9",
+            "CELL_4": "97BS5KO7JBC7",
+            "CELL_5": "DGW592CL4FLP",
+            "CELL_6": "FZA238694VHA",
+            "CELL_7": "HZO6BX6EL11F",
+            "CELL_8": "I48CDH01YS0Q",
+            "CELL_9": "J1SE9WJR3G0P",
+            "CELL_10": "NZ5I25630EWW",
+            "CELL_11": "OQZ2MKKI0HO0",
+            "CELL_12": "OYG60ZH1B6W6",
+            "CELL_13": "Q9B0FHB92BPY",
+            "CELL_14": "RC9RONCGBIMU",
+            "CELL_15": "RCS7O0C1OF5Z",
+            "CELL_16": "RIJDCFJO6ES4",
+            "CELL_17": "TOCXRM1U2I2W",
+            "CELL_18": "V07ODA1F8JK7",
+            "CELL_19": "VQLLLE5OJET1",
+            "CELL_20": "W2EQOOA75HNK"
+        }
+    }
+}
