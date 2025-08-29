@@ -2,40 +2,33 @@
 
 export function renderBESS(id, data) {
   let html = `
-    <p><b>BESS ID:</b> ${id}</p>
-    <p><b>Battery Passport ID:</b> ${data.passport_uuid}</p>
+    <div class="frame">
+      <div class="row"><div class="label">BESS ID:</div><div class="value">${id}</div></div>
+      <div class="row"><div class="label">Battery Passport ID:</div><div class="value">${data.passport_uuid}</div></div>
+    </div>
+    <div class="frame">
     <div class="accordion">
       <div class="accordion-title">General Information</div>
       <div class="accordion-content">
-
-        <div class="grid">
-          <div class="label">Serial Number:</div>
-          <div class="value">${data.serial}</div>
-
-          <div class="label">Description:</div>
-          <div class="value">${data.description}</div>
-
-          <div class="label">Location:</div>
-          <div class="value">${data.location}</div>
-
-          <div class="label">Power:</div>
-          <div class="value">${data.power}</div>
-
-          <div class="label">Energy:</div>
-          <div class="value">${data.energy}</div>
-
-        </div>
+        <div class="row"><div class="label">Serial Number:</div><div class="value">${data.serial}</div></div>
+        <div class="row"><div class="label">Description:</div><div class="value">${data.description}</div></div>
+        <div class="row"><div class="label">Location:</div><div class="value">${data.location}</div></div>
+        <div class="row"><div class="label">Power:</div><div class="value">${data.power}</div></div>
+        <div class="row"><div class="label">Energy:</div><div class="value">${data.energy}</div></div>
       </div>
     </div>
     <img src="media/BessString.png" usemap="#image-map">
     <map name="image-map">
+    
   `;
 
   data.batpacks.forEach((bpId, i) => {
     html += `<area alt="BP${i+1}" title="BP${i+1}" href="index.html?id=${bpId}" coords="${getBPcoords(i)}" shape="rect">`;
   });
 
-  html += `</map></img>`;
+  html +=`</map>
+          </img>
+          </div>`;
   return html;
 }
 function getBPcoords(index) {

@@ -1,13 +1,12 @@
 /* ========= ESTRUCTURA GENERAL ========= */
 body {
-  background: #ffffff;
+  background: #F2F2F7;
   color: #333F49;
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   margin: 0;
-  margin-left : 5%;
   padding: 0;
 }
 
@@ -18,7 +17,7 @@ header {
   left: 0;
   width: 100%;
   text-align: center;
-  background: white;
+  background: #F2F2F7;
   border-bottom: 1px solid #ddd;
   z-index: 1000;
 }
@@ -134,4 +133,12 @@ img[usemap] {
   text-align: right;
   color: #555;
   word-break: break-word;
+}
+/* ========= FRAME ========= */
+
+.frame{
+  background-color: #ffffff;
+  border-radius: 8px;
+  margin: 3%;
+  padding: 3%;
 }
