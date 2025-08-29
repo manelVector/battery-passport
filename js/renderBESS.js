@@ -7,11 +7,24 @@ export function renderBESS(id, data) {
     <div class="accordion">
       <div class="accordion-title">General Information</div>
       <div class="accordion-content">
-        <p><b>Serial Number:</b> ${data.serial}</p>
-        <p><b>Description:</b> ${data.description}</p>
-        <p><b>Location:</b> ${data.location}</p>
-        <p><b>Power:</b> ${data.power}</p>
-        <p><b>Energy:</b> ${data.energy}</p>
+
+        <div class="grid">
+          <div class="label">Serial Number:</div>
+          <div class="value">${data.serial}</div>
+
+          <div class="label">Description:</div>
+          <div class="value">${data.description}</div>
+
+          <div class="label">Location:</div>
+          <div class="value">${data.location}</div>
+
+          <div class="label">Power:</div>
+          <div class="value">${data.power}</div>
+
+          <div class="label">Energy:</div>
+          <div class="value">${data.energy}</div>
+
+        </div>
       </div>
     </div>
     <img src="media/BessString.png" usemap="#image-map">

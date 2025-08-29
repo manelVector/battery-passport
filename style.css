@@ -1,78 +1,55 @@
+/* ========= ESTRUCTURA GENERAL ========= */
 body {
-  font-family: Raleway;
   background: #ffffff;
   color: #333F49;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  margin: 0;
+  margin-left : 5%;
+  padding: 0;
+}
 
+/* ========= HEADER ========= */
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background: white;
+  border-bottom: 1px solid #ddd;
+  z-index: 1000;
 }
 
 header .logo {
-  width: 70%;     /* se adapta al ancho del header */
+  width: 50%;
   height: auto;
-  
 }
 
-/* Contenedor de battery packs */
-.pack-grid {
-  display: grid;
-  gap: 10px;
-  margin: 20px 0;
-  padding: 15px 15px 15px 15px;
+/* ========= FOOTER ========= */
+footer {
+  width: 100%;
   text-align: center;
-}
-
-/* Contenedor de celdas */
-.cell-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 200px);
-  grid-template-rows: repeat(5, 40px);
-  gap: 10px;
-  margin: 20px 0;
-  padding: 15px 15px 15px 15px;
-
-  text-align: center;
-  grid-auto-flow: column;
+  padding: 1rem;
+  background: #ffffff;
+  color: #333F49;
+  margin-top: 3rem;
+  font-size: 0.9rem;
 }
 
 /* ========= BOTONES Y LINKS ========= */
-.back-button{
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #F1872D, #ff9e57);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-  margin: 20px;
+.back-arrow {
+  max-width: 10%;
+  height: auto;
+  display: block;
 }
 
-.pack-button,
-.cell-button,
-.cell {
-  display: inline-block;
-  padding: 0.8rem 1.5rem;
-  background: linear-gradient(135deg, #F1872D, #ff9e57);
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-  border-radius: 8px;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.2);
-  transition: all 0.2s ease-in-out;
-  text-align: center;
-}
-
+/* ========= ANIMACIONES ========= */
 .content {
-      
-  /* Oculto inicialmente */
   opacity: 0;
   transform: translateY(20px);
-
-  /* Aparece al cargar */
   animation: aparecer 1s ease-out forwards;
 }
 
@@ -87,42 +64,24 @@ header .logo {
   }
 }
 
-.back-button:hover,
-.pack-button:hover,
-.cell-button:hover,
-.cell:hover {
-  background: linear-gradient(135deg, #e67615, #ffb37a);
-  transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(0,0,0,0.25);
-}
-
-
-header{
-  text-align: center;
-}
-footer {
-  width: 100vw;            /* ancho completo de la ventana */
-  text-align: center;
-  padding: 1rem;
-  background: #ffffff;
-  color: #333F49;
-  margin-top: 3rem;
-  font-size: 0.9rem;
+/* ========= ACORDEÓN ========= */
+.accordion {
+  padding: 2%;
+  margin-bottom: 1rem;
 }
 
 .accordion-title {
   cursor: pointer;
-  font-size: 1.2rem;       /* un poquito más grande */
+  font-size: 1.2rem;
   font-weight: bold;
-  border-bottom: 2px solid #333F49; /* efecto tipo subrayado */
+  border-bottom: 2px solid #333F49;
   padding: 0.5rem 0;
   position: relative;
   transition: color 0.2s;
 }
 
-/* Flecha usando ::after */
 .accordion-title::after {
-  content: "▼";            /* flecha hacia abajo */
+  content: "▼";
   position: absolute;
   right: 0;
   top: 50%;
@@ -130,13 +89,12 @@ footer {
   transition: transform 0.3s;
 }
 
-/* Cuando el desplegable está abierto */
+/* flecha rota cuando está abierto */
 .accordion-content.open + .accordion-title::after,
 .accordion-title.active::after {
-  transform: translateY(-50%) rotate(180deg); /* rota hacia arriba */
+  transform: translateY(-50%) rotate(180deg);
 }
 
-/* Contenedor de contenido del desplegable */
 .accordion-content {
   font-size: 1rem;
   overflow: hidden;
@@ -144,13 +102,36 @@ footer {
   transition: max-height 0.3s ease;
 }
 
-/* Cuando está abierto */
 .accordion-content.open {
-  max-height: 1000px; /* lo suficientemente grande para el contenido */
+  max-height: 1000px; /* lo suficientemente grande para mostrar contenido */
 }
 
+/* ========= IMÁGENES ========= */
 img[usemap] {
   max-width: 100%;
   height: auto;
   display: block;
+}
+
+/* ========= FILAS LABEL / VALUE (Apple style) ========= */
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.label {
+  font-weight: bold;
+  color: #333F49;
+  flex: 1;
+  text-align: left;
+}
+
+.value {
+  flex: 1;
+  text-align: right;
+  color: #555;
+  word-break: break-word;
 }
