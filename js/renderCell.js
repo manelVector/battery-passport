@@ -18,7 +18,7 @@ export function renderCell(id, data) {
   </div>
 
   <div class="frame">
-    <img src="media/Cell.png" usemap="#image-map"></img>
+    <img src="media/cell.png" usemap="#image-map"></img>
   </div>
 
   `;
