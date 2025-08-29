@@ -7,18 +7,20 @@ export function renderBESS(id, data) {
       <div class="row"><div class="label">Battery Passport ID:</div><div class="value">${data.passport_uuid}</div></div>
     </div>
     <div class="frame">
-    <div class="accordion">
-      <div class="accordion-title">General Information</div>
-      <div class="accordion-content">
-        <div class="row"><div class="label">Serial Number:</div><div class="value">${data.serial}</div></div>
-        <div class="row"><div class="label">Description:</div><div class="value">${data.description}</div></div>
-        <div class="row"><div class="label">Location:</div><div class="value">${data.location}</div></div>
-        <div class="row"><div class="label">Power:</div><div class="value">${data.power}</div></div>
-        <div class="row"><div class="label">Energy:</div><div class="value">${data.energy}</div></div>
+      <div class="accordion">
+        <div class="accordion-title">General Information</div>
+        <div class="accordion-content">
+          <div class="row"><div class="label">Serial Number:</div><div class="value">${data.serial}</div></div>
+          <div class="row"><div class="label">Description:</div><div class="value">${data.description}</div></div>
+          <div class="row"><div class="label">Location:</div><div class="value">${data.location}</div></div>
+          <div class="row"><div class="label">Power:</div><div class="value">${data.power}</div></div>
+          <div class="row"><div class="label">Energy:</div><div class="value">${data.energy}</div></div>
+        </div>
       </div>
     </div>
-    <img src="media/BessString.png" usemap="#image-map">
-    <map name="image-map">
+    <div class="frame">
+      <img src="media/BessString.png" usemap="#image-map">
+      <map name="image-map">
     
   `;
 
