@@ -19,7 +19,7 @@ export function renderBESS(id, data) {
       </div>
     </div>
     <div class="frame">
-      <img src="media/BessString.png" usemap="#image-map">
+      <img class ="interactive_img"src="media/BessString.png" usemap="#image-map">
       <map name="image-map">
     
   `;

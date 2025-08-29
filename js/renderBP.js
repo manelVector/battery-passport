@@ -30,8 +30,16 @@ export function renderBP(id, data) {
 
       <div class="accordion">
         <div class="accordion-title">Labels and Certifications</div>
-        <div class="accordion-content">
-            <div class="row"><div class="label">Symbols & Labels:</div><div class="value">${data.symbols_labels_doc_conformity.symbols_labels.join(", ")}</div></div>
+        <div class="accordion-content">`;
+        data.symbols_labels_doc_conformity.symbols_labels.forEach((symbol, i) => {
+          if (data.symbols_labels_doc_conformity.symbols_labels[i]==="CE"){
+            html += `<img class = "symbols" src="media/ce-mark.png"></img>`;  
+          }else if(data.symbols_labels_doc_conformity.symbols_labels[i]==="WEEE"){
+            html += `<img class = "symbols"src="media/WEEE.png"></img>`;
+          }
+        });
+
+      html += `
             <div class="row"><div class="label">Meaning:</div><div class="value">${data.symbols_labels_doc_conformity.meaning}</div></div>
             <div class="row"><div class="label">CE Doc:</div><div class="value">${data.symbols_labels_doc_conformity.CE_doc}</div></div>
             <div class="row"><div class="label">Extinguishing Agent:</div><div class="value">${data.symbols_labels_doc_conformity["extinguishing agent"]}</div></div>
@@ -89,7 +97,7 @@ export function renderBP(id, data) {
       </div>
     </div>
     <div class="frame">
-      <img src="media/BatPack.png" usemap="#image-map">
+      <img class ="interactive_img" src="media/BatPack.png" usemap="#image-map">
       <map name="image-map">`;
       Object.entries(data.cell_info.cells_id).forEach(([key, cellId], i) => {
         html += `<area target="" alt="${key}" title="${key}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;

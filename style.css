@@ -106,10 +106,15 @@ footer {
 }
 
 /* ========= IMÁGENES ========= */
-img[usemap] {
+.interactive_img[usemap] {
   max-width: 100%;
   height: auto;
   display: block;
+}
+.symbols {
+  max-width: 20%;
+  height: auto;
+  margin: 5%;
 }
 
 /* ========= FILAS LABEL / VALUE (Apple style) ========= */
