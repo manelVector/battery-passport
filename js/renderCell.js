@@ -18,7 +18,7 @@ export function renderCell(id, data) {
   </div>
 
   <div class="frame">
-    <img class = "intersctive_img" src="media/cell.png" usemap="#image-map"></img>
+    <img class = "interactive_img" src="media/cell.png" usemap="#image-map"></img>
   </div>
 
   `;
