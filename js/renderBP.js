@@ -35,7 +35,9 @@ export function renderBP(id, data) {
           if (data.symbols_labels_doc_conformity.symbols_labels[i]==="CE"){
             html += `<img class = "symbols" src="media/ce-mark.png"></img>`;  
           }else if(data.symbols_labels_doc_conformity.symbols_labels[i]==="WEEE"){
-            html += `<img class = "symbols"src="media/WEEE.png"></img>`;
+            html += `<img class = "symbols"src="media/weee.png"></img>`;
+          }else if(data.symbols_labels_doc_conformity.symbols_labels[i]==="UN38.3"){
+            html += `<img class = "symbols"src="media/un38.3.png"></img>`;
           }
         });
 
