@@ -1,7 +1,7 @@
 export function renderBP(id, data) {
     let html = 
     `<div class="frame">
-      <img class="back-arrow" onclick="history.back()" src="media/angulo.png">
+      <img class="back-arrow" onclick="history.back()" src="media/angulo.png"></img>
       <h2>Battery Pack: ${id}</h2>
         <div class="row"><div class="label">Battery Passport ID:</div><div class="value">${data.id_product_data.battery_passport_id}</div></div>
         <div class="row"><div class="label">Model:</div><div class="value">${data.id_product_data.model}</div></div>
