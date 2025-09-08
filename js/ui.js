@@ -12,3 +12,7 @@ export function initAccordion() {
 export function initImageMaps() {
   if (typeof imageMapResize === "function") imageMapResize();
 }
+
+export function isMobile() {
+  return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+}

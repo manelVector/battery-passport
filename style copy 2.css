@@ -144,66 +144,6 @@ footer {
 .frame{
   background-color: #ffffff;
   border-radius: 8px;
-  margin: 2%;
+  margin: 3%;
   padding: 3%;
-}
-
-@media (min-width: 1024px) {
-  body {
-    align-items: center; /* ahora siempre centrado */
-  }
-
-  .frame {
-    max-width: 90%; /* límite de ancho para que no se vea enorme */
-    margin: 2% auto;
-    padding: 2rem;
-  }
-
-
-  header .logo {
-    width: 10%;
-  }
-
-  .back-arrow {
-    max-width: 5%;
-  }
-
-  .symbols {
-    max-width: 10%;
-    margin: 2%;
-  }
-
-  .row {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .value {
-    text-align: right;
-    margin-top: 0;
-  }
-
-  footer {
-    font-size: 1rem;
-    padding: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .accordion-title {
-    font-size: 1.3rem;
-  }
-
-  .accordion-content {
-    font-size: 1.1rem;
-  }
-
-  .interactive_img[usemap] {
-    max-width: 50%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* centra horizontalmente */
-  }
-
 }
