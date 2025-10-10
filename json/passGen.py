@@ -19,7 +19,7 @@ class add_tab(QWidget):
         self.output_dir = output_dir
         self.cell_dir = cell_dir   # carpeta donde están los .json de las celdas
         self.bp_dir = bp_dir
-        self.serial = random_serial()
+        self.serial = None
         self.main_layout = QVBoxLayout()
         self.scroll = QScrollArea()
         self.form_widget = QWidget()
@@ -87,7 +87,13 @@ class add_tab(QWidget):
                 parent_layout.addRow(QLabel(prefix.split(".")[-1]), combo)
                 self.inputs[prefix] = combo
             else:
-                default_value = self.serial if prefix.endswith("serial") else str(data)
+                if str(data).strip().lower() == "app":
+                    default_value = ""
+                elif prefix.endswith("serial"):
+                    default_value = self.serial
+                else:
+                    default_value = str(data)
+
                 line_edit = QLineEdit(default_value)
                 parent_layout.addRow(QLabel(prefix.split(".")[-1]), line_edit)
                 self.inputs[prefix] = line_edit
@@ -127,6 +133,16 @@ class add_tab(QWidget):
 
             new_data = self.rebuild_json(template_data)
 
+            # Obtener el valor actual del campo "serial"
+            for key, widget in self.inputs.items():
+                if key.endswith("serial") and isinstance(widget, QLineEdit):
+                    self.serial = widget.text().strip()
+                    break
+
+            # Si no hay serial, genera uno nuevo por seguridad
+            if not self.serial:
+                self.serial = random_serial()
+
             filename = f"{self.serial}.json"
             filepath = os.path.join(self.output_dir, filename)
 
@@ -136,13 +152,9 @@ class add_tab(QWidget):
 
             QMessageBox.information(self, "Éxito", f"Archivo guardado en:\n{filepath}")
 
-            self.serial = random_serial()
-            for key, widget in self.inputs.items():
-                if key.endswith("serial") and isinstance(widget, QLineEdit):
-                    widget.setText(self.serial)
-
         except Exception as e:
             QMessageBox.critical(self, "Error", f"No se pudo guardar:\n{e}")
+
 
 class BatteryEditor(QWidget):
     def __init__(self):
