@@ -23,10 +23,10 @@
       "UN38.3"
     ],
     "meaning": "CE: European Conformity, WEEE: Waste Electrical & Electronic Equipment, UN38.3: Transport Safety",
-    "CE_doc": "LINK TO VECTOR CONTACT",
+    "CE_doc": "https://nelovick.github.io/battery-passport/contact.html",
     "extinguishing agent": "Hydrocarbon surfactant, CO2",
     "carbon_footprint_label": "TBD kg CO<sub>2</sub>eq",
-    "test_compliance":"LINK TO VECTOR CONTACT"
+    "test_compliance":"https://nelovick.github.io/battery-passport/contact.html"
   },
   "battery_carbon_footprint":{
     "carbon_footprint":"73.9526 KgCO2e/kWh",
@@ -35,7 +35,7 @@
     "distribution_lifecycle_stage":"0,75%",
     "end_of_life_and_recycling_lifecycle_stage":"9,39%",
     "carbon_footprint_performance_class":"TBD",
-    "study_weblink": "LINK TO VECTOR CONTACT"
+    "study_weblink": "https://nelovick.github.io/battery-passport/contact.html"
   },
   "supply_chain_due_diligence":{
     "Information_of_due_diligence_report": "TBD"
@@ -62,10 +62,10 @@
   "circularity_and_resource_efficiency": {
 
     "dismantling_information": {
-      "manuals": "LINK TO VECTOR CONTACT",
-      "part_numbers": "LINK TO VECTOR CONTACT",
-      "spare_parts_sources": "LINK TO VECTOR CONTACT",
-      "safety_measures": "LINK TO VECTOR CONTACT"
+      "manuals": "https://nelovick.github.io/battery-passport/contact.html",
+      "part_numbers": "https://nelovick.github.io/battery-passport/contact.html",
+      "spare_parts_sources": "https://nelovick.github.io/battery-passport/contact.html",
+      "safety_measures": "https://nelovick.github.io/battery-passport/contact.html"
     },
     "pre_consumer_recycled_content": {
       "nickel_share": "TBD",
@@ -80,8 +80,8 @@
       "lead_share": "TBD"
     },
     "renewable_content_share": "TBD",
-    "end_user_role": "LINK TO VECTOR CONTACT",
-    "battery_collection_and_end_of_life": "LINK TO VECTOR CONTACT"
+    "end_user_role": "https://nelovick.github.io/battery-passport/contact.html",
+    "battery_collection_and_end_of_life": "https://nelovick.github.io/battery-passport/contact.html"
   
   },
 
