@@ -75,6 +75,8 @@ export function renderBP(id, data) {
         <div class="row"><div class="label">Electrolyte:</div><div class="value">${data.battery_materials_and_composition.materials_used.electrolyte}</div></div>
         <div class="row"><div class="label">Hazardous Substances:</div><div class="value">${data.battery_materials_and_composition.hazardous_substances.join(", ")}</div></div>
         <div class="row"><div class="label">Impact:</div><div class="value">${data.battery_materials_and_composition.impact.replace(/\. /g, '.<br>')}</div></div>
+        <div class="value"><img class="symbols" src="media/ghs07.png"><img class="symbols" src="media/ghs08.png"></img></div>
+
         </div>
     </div>
 
