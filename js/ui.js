@@ -16,3 +16,4 @@ export function initImageMaps() {
 export function isMobile() {
   return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
 }
+

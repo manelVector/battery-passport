@@ -1,20 +1,20 @@
 {
     "id_product_data": {
-      "battery_passport_id": "BPASSVE230926K9Q2",
-      "model": "VTM00000021",
-      "serial": "K9Q2",
-      "batch": "3",
-      "manufacturer": "VECTOR ENERGY GLOBAL S.L.",
-      "address": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
-      "web_address": "https://vectorenergy.com/",
-      "mail_address": "info@vectorenergy.com",
-      "NIF": "ESB64702277",
-      "manufacturing_place": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
-      "manufacturing_date": "09/26/23",
-      "warranty_period": "TBD",
-      "battery_category": "Industrial battery - stationary battery for energy storage system",
-      "battery_weight": "150 Kg",
-      "battery_status": "Original"
+        "battery_passport_id": "BPASSVEBPAC00020250731AVT01",
+        "model": "VTM00000021",
+        "serial": "BPAC00020250731A",
+        "batch": "OF002003A",
+        "manufacturer": "VECTOR ENERGY GLOBAL S.L.",
+        "address": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
+        "web_address": "https://vectorenergy.com/",
+        "mail_address": "info@vectorenergy.com",
+        "NIF": "ESB64702277",
+        "manufacturing_place": "C/ Montcada, 7 -  Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
+        "manufacturing_date": "31/07/25",
+        "warranty_period": "TBD",
+        "battery_category": "Industrial battery - stationary battery for energy storage system",
+        "battery_weight": "150 Kg",
+        "battery_status": "Original"
     },
     "symbols_labels_doc_conformity": {
         "symbols_labels": [
@@ -23,10 +23,10 @@
             "UN38.3"
         ],
         "meaning": "CE: European Conformity, WEEE: Waste Electrical & Electronic Equipment, UN38.3: Transport Safety",
-        "CE_doc": "https://nelovick.github.io/battery-passport/contact.html",
+        "CE_doc": "https://manelVector.github.io/battery-passport/contact.html",
         "extinguishing agent": "Hydrocarbon surfactant, CO2",
         "carbon_footprint_label": "TBD kg CO<sub>2</sub>eq",
-        "test_compliance": "https://nelovick.github.io/battery-passport/contact.html"
+        "test_compliance": "https://manelVector.github.io/battery-passport/contact.html"
     },
     "battery_carbon_footprint": {
         "carbon_footprint": "73.9526 KgCO2e/kWh",
@@ -35,7 +35,7 @@
         "distribution_lifecycle_stage": "0,75%",
         "end_of_life_and_recycling_lifecycle_stage": "9,39%",
         "carbon_footprint_performance_class": "TBD",
-        "study_weblink": "https://nelovick.github.io/battery-passport/contact.html"
+        "study_weblink": "https://manelVector.github.io/battery-passport/contact.html"
     },
     "supply_chain_due_diligence": {
         "Information_of_due_diligence_report": "TBD"
@@ -61,10 +61,10 @@
     },
     "circularity_and_resource_efficiency": {
         "dismantling_information": {
-            "manuals": "https://nelovick.github.io/battery-passport/contact.html",
-            "part_numbers": "https://nelovick.github.io/battery-passport/contact.html",
-            "spare_parts_sources": "https://nelovick.github.io/battery-passport/contact.html",
-            "safety_measures": "https://nelovick.github.io/battery-passport/contact.html"
+            "manuals": "https://manelVector.github.io/battery-passport/contact.html",
+            "part_numbers": "https://manelVector.github.io/battery-passport/contact.html",
+            "spare_parts_sources": "https://manelVector.github.io/battery-passport/contact.html",
+            "safety_measures": "https://manelVector.github.io/battery-passport/contact.html"
         },
         "pre_consumer_recycled_content": {
             "nickel_share": "TBD",
@@ -79,8 +79,8 @@
             "lead_share": "TBD"
         },
         "renewable_content_share": "TBD",
-        "end_user_role": "https://nelovick.github.io/battery-passport/contact.html",
-        "battery_collection_and_end_of_life": "https://nelovick.github.io/battery-passport/contact.html"
+        "end_user_role": "https://manelVector.github.io/battery-passport/contact.html",
+        "battery_collection_and_end_of_life": "https://manelVector.github.io/battery-passport/contact.html"
     },
     "performance_and_durability": {
         "voltage_and_power": {

@@ -12,6 +12,9 @@ from PyQt5.QtWidgets import (
 def random_serial(length=12):
     return ''.join(random.choices(string.ascii_uppercase + string.digits, k=length))
 
+import re
+# (importes y resto del fichero como antes...)
+
 class add_tab(QWidget):
     def __init__(self, template_path, output_dir, cell_dir=None, bp_dir=None):
         super().__init__()
@@ -87,16 +90,79 @@ class add_tab(QWidget):
                 parent_layout.addRow(QLabel(prefix.split(".")[-1]), combo)
                 self.inputs[prefix] = combo
             else:
+                # Recupero comportamiento original: si el valor es "app" => campo vacío por defecto
                 if str(data).strip().lower() == "app":
                     default_value = ""
                 elif prefix.endswith("serial"):
-                    default_value = self.serial
+                    # si era serial se puede poner el valor actual self.serial como default (si existe)
+                    default_value = self.serial if self.serial else str(data)
                 else:
                     default_value = str(data)
 
                 line_edit = QLineEdit(default_value)
+
+                # conectar sólo el campo serial para que, al cambiar, actualice BP id y manufacture date
+                if prefix.endswith("serial"):
+                    line_edit.textChanged.connect(self.update_from_serial)
+
                 parent_layout.addRow(QLabel(prefix.split(".")[-1]), line_edit)
                 self.inputs[prefix] = line_edit
+
+    def parse_date_from_serial(self, serial):
+        """
+        Extrae la fecha del serial (formato fijo AAMMDD) y la devuelve como DD/MM/AA.
+        Ejemplo: BPAC00003250731A -> 250731 -> 31/07/25
+        """
+        if not serial or len(serial) < 14:
+
+            return ""
+
+        # Toma los 6 dígitos de la parte central (AAMMDD)
+        date_part = serial[9:15]  # según tu ejemplo BPAC0000[325073]1A → 250731
+        if not date_part.isdigit():
+
+            return ""
+
+        try:
+            aa = date_part[0:2]
+            mm = date_part[2:4]
+            dd = date_part[4:6]
+
+            return f"{dd}/{mm}/{aa}"
+            
+        except Exception:
+
+            return ""
+
+
+    def update_from_serial(self):
+        """Actualiza campos relacionados cuando cambia el serial"""
+        # Buscar el campo serial actual
+        serial_value = None
+        for key, widget in self.inputs.items():
+            if key.endswith("serial") and isinstance(widget, QLineEdit):
+                serial_value = widget.text().strip()
+                break
+
+        if not serial_value:
+            return
+
+        # Actualizar battery_passport_id si existe
+        for key, widget in self.inputs.items():
+            if key.endswith("battery_passport_id") and isinstance(widget, QLineEdit):
+                bp_id = f"BPASSVE{serial_value}VT01"
+                widget.blockSignals(True)
+                widget.setText(bp_id)
+                widget.blockSignals(False)
+
+        # Actualizar manufacturing_date (o manufacturingDate si tu plantilla usa otro nombre)
+        manufacture_date = self.parse_date_from_serial(serial_value)
+        for key, widget in self.inputs.items():
+            # chequea ambos sufijos posibles por si la plantilla tiene una variante
+            if key.endswith("manufacturing_date") and isinstance(widget, QLineEdit):
+                widget.blockSignals(True)
+                widget.setText(manufacture_date)
+                widget.blockSignals(False)
 
     def rebuild_json(self, data, prefix=""):
         if isinstance(data, dict):
@@ -135,7 +201,7 @@ class add_tab(QWidget):
 
             # Obtener el valor actual del campo "serial"
             for key, widget in self.inputs.items():
-                if key.endswith("serial") and isinstance(widget, QLineEdit):
+                if key.endswith("battery_passport_id") and isinstance(widget, QLineEdit):
                     self.serial = widget.text().strip()
                     break
 
@@ -154,6 +220,8 @@ class add_tab(QWidget):
 
         except Exception as e:
             QMessageBox.critical(self, "Error", f"No se pudo guardar:\n{e}")
+
+
 
 
 class BatteryEditor(QWidget):

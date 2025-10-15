@@ -5,7 +5,7 @@
 export function renderBESS(id, data) {
   let html = `
     <div class="frame"> 
-    <h2>Battery Passport ID: ${data.passport_uuid}</h2>
+    <h2>Battery Passport ID: ${data.battery_passport_id}</h2>
       <div class="row"><div class="label">Serial:</div><div class="value">${data.serial}</div></div>
     </div>
     <div class="frame">
