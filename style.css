@@ -1,4 +1,4 @@
-/* ========= ESTRUCTURA GENERAL ========= */
+/* ========= ESTRUCTURA GENERAL ========= *//* PHONE VIEW*/
 body {
   background: #F2F2F7;
   color: #333F49;
@@ -151,7 +151,7 @@ footer {
   padding: 3%;
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 1024px) {/*PC VIEW*/
   body {
     align-items: center; /* ahora siempre centrado */
   }
@@ -188,10 +188,11 @@ footer {
   }
 
   footer {
-    font-size: 1rem;
+    width: 100%;
     padding: 1.5rem;
-    max-width: 900px;
-    margin: 0 auto;
+    font-size: 1rem;
+    background: #ffffff;
+    text-align: center;
   }
 
   .accordion-title {
