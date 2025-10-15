@@ -30,7 +30,8 @@ export function renderBP(id, data) {
 
     <div class="accordion">
       <div class="accordion-title">Labels and Certifications</div>
-      <div class="accordion-content">`;
+      <div class="accordion-content">
+      <div class="value">`;
 
   // Símbolos
   data.symbols_labels_doc_conformity.symbols_labels.forEach((symbol) => {
@@ -41,9 +42,11 @@ export function renderBP(id, data) {
     } else if (symbol === "UN38.3") {
       html += `<img class="symbols" src="media/un38_3.png"></img>`;
     }
-  });
+  })
+
 
   html += `
+        </div>
         <div class="row"><div class="label">Meaning:</div><div class="value">${data.symbols_labels_doc_conformity.meaning}</div></div>
         <div class="row"><div class="label">CE Doc:</div><div class="value"><a href="${data.symbols_labels_doc_conformity.CE_doc}" target="_blank">View Document</a></div></div>
         <div class="row"><div class="label">Extinguishing Agent:</div><div class="value">${data.symbols_labels_doc_conformity["extinguishing agent"]}</div></div>
