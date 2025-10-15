@@ -1,20 +1,20 @@
 {
     "id_product_data": {
-        "battery_passport_id": "abc",
-        "model": "VTM00000021",
-        "serial": "aaa",
-        "batch": "asdfds",
-        "manufacturer": "VECTOR ENERGY GLOBAL S.L.",
-        "address": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
-        "web_address": "https://vectorenergy.com/",
-        "mail_address": "info@vectorenergy.com",
-        "NIF": "ESB64702277",
-        "manufacturing_place": "C/ Montcada, 7 -  Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
-        "manufacturing_date": "",
-        "warranty_period": "TBD",
-        "battery_category": "Industrial battery - stationary battery for energy storage system",
-        "battery_weight": "150 Kg",
-        "battery_status": "Original"
+      "battery_passport_id": "BPASSVE250321W2B1",
+      "model": "VTM00000021",
+      "serial": "W2B1",
+      "batch": "17",
+      "manufacturer": "VECTOR ENERGY GLOBAL S.L.",
+      "address": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
+      "web_address": "https://vectorenergy.com/",
+      "mail_address": "info@vectorenergy.com",
+      "NIF": "ESB64702277",
+      "manufacturing_place": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
+      "manufacturing_date": "03/21/25",
+      "warranty_period": "TBD",
+      "battery_category": "Industrial battery - stationary battery for energy storage system",
+      "battery_weight": "150 Kg",
+      "battery_status": "Original"
     },
     "symbols_labels_doc_conformity": {
         "symbols_labels": [

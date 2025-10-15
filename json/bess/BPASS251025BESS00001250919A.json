@@ -1,0 +1,23 @@
+{
+    "description": "Laboratory prototype BESS system",
+    "batpacks": [
+      "BPASSVE2309188F3A",
+      "BPASSVE230921Z1B7",
+      "BPASSVE230926K9Q2",
+      "BPASSVE2310157D4F",
+      "BPASSVE231118A1C9",
+      "BPASSVE2401035E7B",
+      "BPASSVE240315D2A1",
+      "BPASSVE240405F8C3",
+      "BPASSVE240622B3E4",
+      "BPASSVE2407109F5D",
+      "BPASSVE240821E7Q8",
+      "BPASSVE240927P4M2",
+      "BPASSVE241005S8D6"
+    ],
+    "location": "Bcn, Spain",
+    "power": "500 kW",
+    "energy": "1 MWh",
+    "serial": "BESS00001250919A",
+    "passport_uuid": "BPASS251025BESS00001250919A"
+}

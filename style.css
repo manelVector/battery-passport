@@ -116,6 +116,9 @@ footer {
   height: auto;
   margin: 5%;
 }
+.row-image {
+  align-content: center;
+}
 
 /* ========= FILAS LABEL / VALUE (Apple style) ========= */
 .row {

@@ -2,9 +2,9 @@
 
 export function renderBESS(id, data) {
   let html = `
-    <div class="frame">
-      <div class="row"><div class="label">BESS ID:</div><div class="value">${id}</div></div>
-      <div class="row"><div class="label">Battery Passport ID:</div><div class="value">${data.passport_uuid}</div></div>
+    <div class="frame"> 
+    <h2>Battery Passport ID: ${data.passport_uuid}</h2>
+      <div class="row"><div class="label">Serial:</div><div class="value">${data.serial}</div></div>
     </div>
     <div class="frame">
       <div class="accordion">

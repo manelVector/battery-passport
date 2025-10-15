@@ -4,8 +4,7 @@ export function renderBP(id, data) {
   let html = `
   <div class="frame">
     <img class="back-arrow" onclick="history.back()" src="media/angulo.png"></img>
-    <h2>Battery Pack: ${id}</h2>
-      <div class="row"><div class="label">Battery Passport ID:</div><div class="value">${data.id_product_data.battery_passport_id}</div></div>
+    <h2>Battery Passport ID: ${data.id_product_data.battery_passport_id}</h2>
       <div class="row"><div class="label">Model:</div><div class="value">${data.id_product_data.model}</div></div>
       <div class="row"><div class="label">Serial:</div><div class="value">${data.id_product_data.serial}</div></div>
       <div class="row"><div class="label">Batch:</div><div class="value">${data.id_product_data.batch}</div></div>
@@ -75,8 +74,8 @@ export function renderBP(id, data) {
         <div class="row"><div class="label">Anode:</div><div class="value">${data.battery_materials_and_composition.materials_used.anode}</div></div>
         <div class="row"><div class="label">Electrolyte:</div><div class="value">${data.battery_materials_and_composition.materials_used.electrolyte}</div></div>
         <div class="row"><div class="label">Hazardous Substances:</div><div class="value">${data.battery_materials_and_composition.hazardous_substances.join(", ")}</div></div>
-        <div class="row"><div class="label">Impact:</div><div class="value">${data.battery_materials_and_composition.impact}</div></div>
-      </div>
+        <div class="row"><div class="label">Impact:</div><div class="value">${data.battery_materials_and_composition.impact.replace(/\. /g, '.<br>')}</div></div>
+        </div>
     </div>
 
     <div class="accordion">
