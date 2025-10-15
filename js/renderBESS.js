@@ -1,5 +1,7 @@
 // renderBESS.js
 
+
+
 export function renderBESS(id, data) {
   let html = `
     <div class="frame"> 
