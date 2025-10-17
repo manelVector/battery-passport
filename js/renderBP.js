@@ -4,7 +4,7 @@ export function renderBP(id, data) {
   let html = `
   <div class="frame">
     <img class="back-arrow" onclick="history.back()" src="media/angulo.png"></img>
-    <h2>Battery Passport ID: ${data.id_product_data.battery_passport_id}</h2>
+    <h3>Battery Passport ID: ${data.id_product_data.battery_passport_id}</h3>
       <div class="row"><div class="label">Model:</div><div class="value">${data.id_product_data.model}</div></div>
       <div class="row"><div class="label">Serial:</div><div class="value">${data.id_product_data.serial}</div></div>
       <div class="row"><div class="label">Batch:</div><div class="value">${data.id_product_data.batch}</div></div>
@@ -31,7 +31,7 @@ export function renderBP(id, data) {
     <div class="accordion">
       <div class="accordion-title">Labels and Certifications</div>
       <div class="accordion-content">
-      <div class="value">`;
+      <div class="centered-content">`;
 
   // Símbolos
   data.symbols_labels_doc_conformity.symbols_labels.forEach((symbol) => {
@@ -43,7 +43,6 @@ export function renderBP(id, data) {
       html += `<img class="symbols" src="media/un38_3.png"></img>`;
     }
   })
-
 
   html += `
         </div>
@@ -77,10 +76,10 @@ export function renderBP(id, data) {
         <div class="row"><div class="label">Anode:</div><div class="value">${data.battery_materials_and_composition.materials_used.anode}</div></div>
         <div class="row"><div class="label">Electrolyte:</div><div class="value">${data.battery_materials_and_composition.materials_used.electrolyte}</div></div>
         <div class="row"><div class="label">Hazardous Substances:</div><div class="value">${data.battery_materials_and_composition.hazardous_substances.join(", ")}</div></div>
-        <div class="row"><div class="label">Impact:</div><div class="value">${data.battery_materials_and_composition.impact.replace(/\. /g, '.<br>')}</div></div>
-        <div class="value"><img class="symbols" src="media/ghs07.png"><img class="symbols" src="media/ghs08.png"></img></div>
-
-        </div>
+        <div class="row"><div class="label">Impact:</div></div>
+        <div class="centered-content">${data.battery_materials_and_composition.impact.replace(/\. /g, '.<br>')}</div>
+        <div class="centered-content"><img class="symbols" src="media/ghs07.png"></img><img class="symbols" src="media/ghs08.png"></img></div>
+      </div>
     </div>
 
     <div class="accordion">
@@ -94,6 +93,7 @@ export function renderBP(id, data) {
         <div class="row"><div class="label">Post-Consumer Recycled:</div><div class="value">${Object.entries(data.circularity_and_resource_efficiency.post_consumer_recycled_content).map(([k,v])=>`${k}: ${v}`).join(", ")}</div></div>
         <div class="row"><div class="label">Renewable Content:</div><div class="value">${data.circularity_and_resource_efficiency.renewable_content_share}</div></div>
         <div class="row"><div class="label">End User Role:</div><div class="value"><a href="${data.circularity_and_resource_efficiency.end_user_role}" target="_blank">More Info</a></div></div>
+        <div class="row"><div class="label">End User Collection Role:</div><div class="value">${data.circularity_and_resource_efficiency.end_user_collection_role}</div></div>
         <div class="row"><div class="label">Battery Collection & End of Life:</div><div class="value"><a href="${data.circularity_and_resource_efficiency.battery_collection_and_end_of_life}" target="_blank">Details</a></div></div>
       </div>
     </div>
@@ -101,16 +101,42 @@ export function renderBP(id, data) {
     <div class="accordion">
       <div class="accordion-title">Performance & Durability</div>
       <div class="accordion-content">
+        <div class="row"><div class="label">State of Charge:</div><div class="value">${data.performance_and_durability.voltage_and_power.state_of_charge}</div></div>
         <div class="row"><div class="label">Nominal Voltage:</div><div class="value">${data.performance_and_durability.voltage_and_power.nominal_voltage}</div></div>
         <div class="row"><div class="label">Minimum Voltage:</div><div class="value">${data.performance_and_durability.voltage_and_power.minimum_voltage}</div></div>
         <div class="row"><div class="label">Maximum Voltage:</div><div class="value">${data.performance_and_durability.voltage_and_power.maximum_voltage}</div></div>
         <div class="row"><div class="label">Original Power Capability:</div><div class="value">${data.performance_and_durability.voltage_and_power.original_power_capability}</div></div>
+        <div class="row"><div class="label">Remaining Power Capability:</div><div class="value">${data.performance_and_durability.voltage_and_power.remaining_power_capability}</div></div>
+        <div class="row"><div class="label">Power Fade:</div><div class="value">${data.performance_and_durability.voltage_and_power.power_fade}</div></div>
         <div class="row"><div class="label">Maximum Permitted Power:</div><div class="value">${data.performance_and_durability.voltage_and_power.maximum_permitted_battery_power}</div></div>
+
+        <div class="row"><div class="label">Initial Round Trip Efficiency:</div><div class="value">${data.performance_and_durability.energy_efficiency.initial_round_trip_efficiency}</div></div>
+        <div class="row"><div class="label">Round Trip Efficiency at 50% Cycle Life:</div><div class="value">${data.performance_and_durability.energy_efficiency.round_trip_efficiency_at_50pct_cycle_life}</div></div>
+        <div class="row"><div class="label">Remaining Round Trip Efficiency:</div><div class="value">${data.performance_and_durability.energy_efficiency.remaining_round_trip_efficiency}</div></div>
+        <div class="row"><div class="label">Energy Round Trip Efficiency Fade:</div><div class="value">${data.performance_and_durability.energy_efficiency.energy_round_trip_efficiency_fade}</div></div>
+
+        <div class="row"><div class="label">Self-discharge Rate Evolution:</div><div class="value">${data.performance_and_durability.self_discharge_and_resistance.self_discharge_rate_evolution}</div></div>
+        <div class="row"><div class="label">Initial Internal Resistance (Cell):</div><div class="value">${data.performance_and_durability.self_discharge_and_resistance.initial_internal_resistance_cell}</div></div>
+        <div class="row"><div class="label">Initial Internal Resistance (Pack):</div><div class="value">${data.performance_and_durability.self_discharge_and_resistance.initial_internal_resistance_pack}</div></div>
+        <div class="row"><div class="label">Internal Resistance Increase (Pack):</div><div class="value">${data.performance_and_durability.self_discharge_and_resistance.internal_resistance_increase_pack}</div></div>
+
         <div class="row"><div class="label">Expected Life:</div><div class="value">${data.performance_and_durability.lifetime.expected_calendar_life_years}, ${data.performance_and_durability.lifetime.expected_cycle_life}</div></div>
+        <div class="row"><div class="label">Number of Full Cycles:</div><div class="value">${data.performance_and_durability.lifetime.number_of_full_cycles}</div></div>
+        <div class="row"><div class="label">Capacity Fade:</div><div class="value">${data.performance_and_durability.lifetime.capacity_fade}</div></div>
         <div class="row"><div class="label">Cycle Life Test:</div><div class="value">${data.performance_and_durability.lifetime.cycle_life_reference_test}</div></div>
         <div class="row"><div class="label">C-rate:</div><div class="value">${data.performance_and_durability.lifetime.c_rate_cycle_life_test}</div></div>
+
+        <div class="row"><div class="label">Energy Throughput:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.energy_throughtput}</div></div>
         <div class="row"><div class="label">Capacity Throughput:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.capacity_throughput}</div></div>
-        <div class="row"><div class="label">Temperature Range:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.temperature_idle_range.lower_boundary} - ${data.performance_and_durability.temperature_and_throughput.temperature_idle_range.upper_boundary}</div></div>
+        <div class="row"><div class="label">Temperature Range Idle:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.temperature_idle_range.lower_boundary} - ${data.performance_and_durability.temperature_and_throughput.temperature_idle_range.upper_boundary}</div></div>
+        <div class="row"><div class="label">Time Above Upper Boundary:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.time_above_upper_boundary}</div></div>
+        <div class="row"><div class="label">Time Below Lower Boundary:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.time_below_lower_boundary}</div></div>
+        <div class="row"><div class="label">Time Charging Above Boundary:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.time_charging_above_boundary}</div></div>
+        <div class="row"><div class="label">Time Charging Below Boundary:</div><div class="value">${data.performance_and_durability.temperature_and_throughput.time_charging_below_boundary}</div></div>
+
+        <div class="row"><div class="label">Number of Deep Discharge Events:</div><div class="value">${data.performance_and_durability.events_and_safety.number_of_deep_discharge_events}</div></div>
+        <div class="row"><div class="label">Number of Overcharge Events:</div><div class="value">${data.performance_and_durability.events_and_safety.number_of_overcharge_events}</div></div>
+        <div class="row"><div class="label">Accidents Information:</div><div class="value">${data.performance_and_durability.events_and_safety.accidents_information}</div></div>
       </div>
     </div>
   </div>

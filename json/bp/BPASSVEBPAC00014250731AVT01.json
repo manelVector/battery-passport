@@ -2,8 +2,8 @@
     "id_product_data": {
         "battery_passport_id": "BPASSVEBPAC00014250731AVT01",
         "model": "VTM00000021",
-        "serial": "BPAC00014250731A",
-        "batch": "OF002003A",
+        "serial": "BPAC00014250731A ",
+        "batch": "OF0020003A",
         "manufacturer": "VECTOR ENERGY GLOBAL S.L.",
         "address": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
         "web_address": "https://vectorenergy.com/",
@@ -11,7 +11,7 @@
         "NIF": "ESB64702277",
         "manufacturing_place": "C/ Montcada, 7 -  Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
         "manufacturing_date": "31/07/25",
-        "warranty_period": "TBD",
+        "warranty_period": "",
         "battery_category": "Industrial battery - stationary battery for energy storage system",
         "battery_weight": "150 Kg",
         "battery_status": "Original"
@@ -20,12 +20,14 @@
         "symbols_labels": [
             "CE",
             "WEEE",
-            "UN38.3"
+            "UN38.3",
+            "Cd",
+            "Pb"
         ],
-        "meaning": "CE: European Conformity, WEEE: Waste Electrical & Electronic Equipment, UN38.3: Transport Safety",
+        "meaning": "CE: European Conformity, WEEE: Waste Electrical & Electronic Equipment, UN38.3: Transport Safety, Cd: Contains Cadmium, Pb: Contains Lead",
         "CE_doc": "https://manelVector.github.io/battery-passport/contact.html",
         "extinguishing agent": "Hydrocarbon surfactant, CO2",
-        "carbon_footprint_label": "TBD kg CO<sub>2</sub>eq",
+        "carbon_footprint_label": " kg CO<sub>2</sub>eq",
         "test_compliance": "https://manelVector.github.io/battery-passport/contact.html"
     },
     "battery_carbon_footprint": {
@@ -34,11 +36,11 @@
         "main_product_production/manufacturing_lifecycle_stage": "11,38%",
         "distribution_lifecycle_stage": "0,75%",
         "end_of_life_and_recycling_lifecycle_stage": "9,39%",
-        "carbon_footprint_performance_class": "TBD",
+        "carbon_footprint_performance_class": "",
         "study_weblink": "https://manelVector.github.io/battery-passport/contact.html"
     },
     "supply_chain_due_diligence": {
-        "Information_of_due_diligence_report": "TBD"
+        "Information_of_due_diligence_report": ""
     },
     "battery_materials_and_composition": {
         "battery_chemistry": "LiFePO4 (Lithium Iron Phosphate)",
@@ -67,24 +69,25 @@
             "safety_measures": "https://manelVector.github.io/battery-passport/contact.html"
         },
         "pre_consumer_recycled_content": {
-            "nickel_share": "TBD",
-            "cobalt_share": "TBD",
-            "lithium_share": "TBD",
-            "lead_share": "TBD"
+            "nickel_share": "",
+            "cobalt_share": "",
+            "lithium_share": "",
+            "lead_share": ""
         },
         "post_consumer_recycled_content": {
-            "nickel_share": "TBD",
-            "cobalt_share": "TBD",
-            "lithium_share": "TBD",
-            "lead_share": "TBD"
+            "nickel_share": "",
+            "cobalt_share": "",
+            "lithium_share": "",
+            "lead_share": ""
         },
-        "renewable_content_share": "TBD",
+        "renewable_content_share": "",
         "end_user_role": "https://manelVector.github.io/battery-passport/contact.html",
+        "end_user_collection_role": "",
         "battery_collection_and_end_of_life": "https://manelVector.github.io/battery-passport/contact.html"
     },
     "performance_and_durability": {
         "voltage_and_power": {
-            "state_of_charge": "dinamic",
+            "state_of_charge": "",
             "minimum_voltage": "50 V",
             "maximum_voltage": "73 V",
             "nominal_voltage": "64 V",
@@ -94,8 +97,9 @@
             "maximum_permitted_battery_power": "17,9kW, 25Cº "
         },
         "energy_efficiency": {
-            "initial_round_trip_efficiency": "TBD",
-            "remaining_round_trip_efficiency": "TBD",
+            "initial_round_trip_efficiency": "",
+            "round_trip_efficiency_at_50pct_cycle_life": "",
+            "remaining_round_trip_efficiency": "",
             "energy_round_trip_efficiency_fade": "0,1%"
         },
         "self_discharge_and_resistance": {
@@ -109,7 +113,8 @@
             "expected_cycle_life": "1000 ciclos",
             "number_of_full_cycles": "16",
             "cycle_life_reference_test": "25ºC 50V to 73V",
-            "c_rate_cycle_life_test": "0,5C"
+            "c_rate_cycle_life_test": "0,5C",
+            "capacity_fade": ""
         },
         "temperature_and_throughput": {
             "energy_throughtput": "286,4 kWh",
