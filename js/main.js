@@ -3,6 +3,8 @@ import { loadJSONForID } from "./api.js";
 import { renderCell } from "./renderCell.js";
 import { renderBP } from "./renderBP.js";
 import { renderBESS } from "./renderBESS.js";
+import { initInteractiveBESS } from "./interactiveBess.js";
+import { initInteractiveBP } from "./interactiveBP.js";
 import { initAccordion, initImageMaps } from "./ui.js";
 
 const params = new URLSearchParams(window.location.search);
@@ -32,4 +34,6 @@ const content = document.getElementById("content");
 
   initAccordion();
   initImageMaps();
+  initInteractiveBESS(content);
+  initInteractiveBP(content);
 })();

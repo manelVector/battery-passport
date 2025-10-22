@@ -1,7 +1,7 @@
-import { isMobile } from "./ui.js";
-
+// renderBP.js
 export function renderBP(id, data) {
-  let html = `
+  let html = /*html*/`
+  <div class ="container">
   <div class="frame">
     <img class="back-arrow" onclick="history.back()" src="media/angulo.png"></img>
     <h3>Battery Passport ID: ${data.id_product_data.battery_passport_id}</h3>
@@ -141,28 +141,43 @@ export function renderBP(id, data) {
     </div>
   </div>
 
-  <div class="frame">
-    <img class="interactive_img" src="media/BatPack.png" usemap="#image-map">
+  <div class="interactive">
+    <img class="interactive_img" src="media/cellString.png" usemap="#image-map">
     <map name="image-map">`;
 
-  Object.entries(data.cell_info.cells_id).forEach(([key, cellId], i) => {
-    html += `<area target="" alt="${key}" title="${key}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
+  data.cell_info.cells_id.forEach((cellId, i) => {
+    html += `<area class="area_bp" alt="cell${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
   });
 
   html += `
     </map>
-  </div>`;
-
+  </div></div>`;
   return html;
 }
 
 function getCellCoords(index) {
   const coords = [
-    "135,2082,564,2274","135,1863,565,2055","138,1643,570,1833","136,1423,564,1616",
-    "136,1203,562,1396","135,987,562,1170","134,765,573,950","133,544,562,734",
-    "128,324,565,515","126,106,561,296","651,108,1084,294","653,323,1081,518",
-    "650,545,1079,734","656,765,1079,955","654,982,1078,1177","651,1203,1080,1399",
-    "653,1420,1082,1614","655,1645,1079,1836","648,1863,1081,2054","653,2081,1085,2274"
+    "105,1359,346,1293", 
+    "108,1169,347,1232", 
+    "102,1042,346,1108", 
+    "105,918,347,983",
+    "105,790,343,859", 
+    "106,669,346,734", 
+    "105,541,345,611", 
+    "105,417,343,484",
+    "102,294,346,358", 
+    "103,168,345,236", 
+    "447,167,687,233", 
+    "444,292,690,359",
+    "444,417,688,484", 
+    "445,545,689,609", 
+    "442,664,690,734", 
+    "444,789,687,859",
+    "442,919,685,984", 
+    "442,1043,689,1109", 
+    "443,1165,689,1234", 
+    "445,1292,691,1356"
   ];
   return coords[index] || "0,0,0,0";
 }
+

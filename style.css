@@ -1,77 +1,156 @@
-/* ========= ESTRUCTURA GENERAL ========= *//* PHONE VIEW*/
-body {
-  background: #F2F2F7;
-  color: #333F49;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+/* ========= RESET & BASE ========= */
+* {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
-/* ========= HEADER ========= */
-header {
-  position: sticky;
-  top: 0;
-  left: 0;
-  width: 100%;
-  text-align: center;
+html, body {
+  height: 100%;
   background: #F2F2F7;
-  border-bottom: 1px solid #ddd;
-  z-index: 1000;
+  color: #333F49;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ========= LAYOUT PRINCIPAL ========= */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+}
+
+/* ========= HEADER ADAPTABLE ========= */
+header {
+  width: 100%;
+  height: 60px;
+  background: url('media/banner-pc.svg') no-repeat center center;
+  background-size: cover;
 }
 
 header .logo {
-  width: 50%;
-  height: auto;
+  max-height: 100px;
+  width: auto;
+}
+
+.main-layout {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.content {
+  flex: 1;
+  max-width: 1600px;
+  width: 100%;
+  background: none;
+  animation: aparecer 0.8s ease-out forwards;
 }
 
 /* ========= FOOTER ========= */
 footer {
-  width: 100%;
-  text-align: center;
-  padding: 1rem;
-  background: #ffffff;
+  background: #fff;
   color: #333F49;
-  margin-top: 3rem;
-  font-size: 0.9rem;
+  padding: 1rem 0;
+  text-align: center;
+  border-top: 1px solid #ddd;
+  font-size: 0.95rem;
 }
 
-/* ========= BOTONES Y LINKS ========= */
-.back-arrow {
-  max-width: 10%;
-  height: auto;
-  display: block;
+footer .icons img {
+  height: 24px;
+  margin: 0 8px;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+footer .icons img:hover {
+  opacity: 1;
+}
+
+footer .small-text {
+  font-size: 0.8rem;
+  color: #666;
+  margin-top: 0.5rem;
 }
 
 /* ========= ANIMACIONES ========= */
-.content {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: aparecer 1s ease-out forwards;
-}
-
 @keyframes aparecer {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
-/* ========= ACORDEÓN ========= */
+/* ========= GRID LAYOUT DEL RENDER ========= */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1.1fr;
+  grid-template-rows: auto 1fr;
+  grid-template-areas:
+    "frame1 interactive"
+    "frame2 interactive";
+  gap: 1rem;
+  height: calc(100vh - 220px); /* espacio sin header/footer */
+  overflow: hidden;
+}
+
+/* Asignar las áreas */
+.container .frame:nth-of-type(1) {
+  grid-area: frame1;
+}
+
+.container .frame:nth-of-type(2) {
+  grid-area: frame2;
+}
+
+.container .interactive {
+  grid-area: interactive;
+}
+
+
+.frame{
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  overflow-y: auto;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.frame h3 {
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.label {
+  font-weight: 600;
+  flex: 1;
+  color: #333F49;
+}
+
+.value {
+  flex: 1;
+  text-align: right;
+  color: #555;
+  word-break: break-word;
+}
+
+/* ========= ACORDEONES ========= */
 .accordion {
-  padding: 2%;
   margin-bottom: 1rem;
 }
 
 .accordion-title {
   cursor: pointer;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: bold;
   border-bottom: 1px solid #333F49;
   padding: 0.5rem 0;
@@ -88,126 +167,44 @@ footer {
   transition: transform 0.3s;
 }
 
-/* flecha rota cuando está abierto */
-.accordion-content.open + .accordion-title::after,
-.accordion-title.active::after {
-  transform: translateY(-50%) rotate(180deg);
-}
-
 .accordion-content {
-  font-size: 1rem;
-  overflow: hidden;
   max-height: 0;
-  transition: max-height 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+  overflow: hidden;
+  font-size: 1rem;
+  transition: max-height 0.3s ease;
 }
 
 .accordion-content.open {
-  max-height: 2000px; /* lo suficientemente grande para mostrar contenido */
+  max-height: 2000px;
 }
 
-/* ========= IMÁGENES ========= */
-.interactive_img[usemap] {
-  max-width: 100%;
+.symbols {
+  max-width: 40px;
+  height: auto;
+  margin: 4px;
+}
+.back-arrow {
+  max-width: 40px;
+  height: auto;
+  margin: 4px;
+}
+
+.interactive {
+  background-color: #fff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+
+  display: flex;           /* para centrar contenido */
+  justify-content: center; /* centra horizontalmente */
+  align-items: center;     /* centra verticalmente */
+  overflow: hidden;        /* evita scroll innecesario */
+}
+
+.interactive_img {
+  width: 37%;      /* tu tamaño reducido */
   height: auto;
   display: block;
-}
-.symbols {
-  max-width: 20%;
-  height: auto;
-  margin: 5%;
-}
-.row-image {
-  align-content: center;
-}
-
-/* ========= FILAS LABEL / VALUE (Apple style) ========= */
-.row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 6px 0;
-  border-bottom: 1px solid #eee;
-}
-
-.label {
-  font-weight: bold;
-  color: #333F49;
-  flex: 1;
-  text-align: left;
-}
-
-.value {
-  flex: 1;
-  text-align: right;
-  color: #555;
-  word-break: break-word;
-}
-/* ========= FRAME ========= */
-
-.frame{
-  background-color: #ffffff;
-  border-radius: 8px;
-  margin: 2%;
-  padding: 3%;
-}
-
-@media (min-width: 1024px) {/*PC VIEW*/
-  body {
-    align-items: center; /* ahora siempre centrado */
-  }
-
-  .frame {
-    max-width: 90%; /* límite de ancho para que no se vea enorme */
-    margin: 2% auto;
-    padding: 2rem;
-  }
-
-
-  header .logo {
-    width: 10%;
-  }
-
-  .back-arrow {
-    max-width: 5%;
-  }
-
-  .symbols {
-    max-width: 10%;
-    margin: 2%;
-  }
-
-  .row {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .value {
-    text-align: right;
-    margin-top: 0;
-  }
-
-  footer {
-    width: 100%;
-    padding: 1.5rem;
-    font-size: 1rem;
-    background: #ffffff;
-    text-align: center;
-  }
-
-  .accordion-title {
-    font-size: 1.3rem;
-  }
-
-  .accordion-content {
-    font-size: 1.1rem;
-  }
-
-  .interactive_img[usemap] {
-    max-width: 50%;
-    height: auto;
-    display: block;
-    margin: 0 auto; /* centra horizontalmente */
-  }
-
+  margin: 0 auto;  /* centra horizontalmente */
+  object-fit: contain;
 }

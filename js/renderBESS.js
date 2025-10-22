@@ -1,7 +1,8 @@
 // renderBESS.js
 
 export function renderBESS(id, data) {
-  let html = `
+  let html = /*html*/`
+  <div class = "container">
     <div class="frame"> 
       <h3>BESS Passport ID: ${data.general_info.battery_passport_id}</h3>
       <div class="row"><div class="label">BESS Model:</div><div class="value">${data.general_info.bess_model}</div></div>
@@ -57,38 +58,54 @@ export function renderBESS(id, data) {
       <div class="accordion">
         <div class="accordion-title">Compliance Labels</div>
         <div class="accordion-content">
-          <div class="row"><div class="label">Symbols:</div><div class="value">`;
+          `;
   
   // Mostrar iconos de compliance_labels
   data.compliance_labels.symbols_labels.forEach(symbol => {
     if (symbol === "CE") html += `<img class="symbols" src="media/ce_mark.png">`;
     else if (symbol === "WEEE") html += `<img class="symbols" src="media/weee.png">`;
     else if (symbol === "UN38.3") html += `<img class="symbols" src="media/un38_3.png">`;
-    else if (symbol === "Refer to the instruction manual") html += `<img class="symbols" src="media/instruction_manual.png">`;
+    else if (symbol === "Refer to the instruction manual") html += `<img class="symbols" src="media/read-manual.png">`;
   });
 
-  html += `</div></div></div></div></div>`;
+  html += `
+        </div>
+      </div>
+    </div>`;
 
   // Batpacks interactive image (mantener igual)
   html += `
-    <div class="frame">
+    <div class="interactive">
       <img class="interactive_img" src="media/BessString.png" usemap="#image-map">
       <map name="image-map">`;
 
   data.batpacks.forEach((bpId, i) => {
-    html += `<area alt="BP${i+1}" title="BP${i+1}" href="index.html?id=${bpId}" coords="${getBPcoords(i)}" shape="rect">`;
+    html += `<area class="area_bess" alt="BP${i+1}" title="BP${i+1}" href="index.html?id=${bpId}" coords="${getBPcoords(i)}" shape="rect">`;
   });
 
-  html += `</map></div>`;
+  html += `</map></div></div>`;
 
   return html;
 }
 
 function getBPcoords(index) {
   const coords = [
-    "105,80,542,296","109,340,537,557","110,604,534,828","112,869,533,1092","112,1138,537,1360",
-    "108,1400,534,1623","105,1668,534,1890","638,74,1066,299","637,338,1066,561","637,607,1070,828",
-    "641,869,1067,1094","642,1135,1068,1355","642,1403,1060,1624","636,1667,1060,1888"
+    "268,207,627,348",
+    "271,603,623,735",
+    "271,982,633,1133",
+    "265,1369,630,1522",
+    "269,1762,627,1907",
+    "269,2149,630,2300",
+    "1014,210,1374,347",
+    "1014,589,1374,740",
+    "1018,983,1369,1131",
+    "1009,1372,1373,1520",
+    "1011,1759,1369,1906",
+    "1014,2151,1374,2291",
+    "1012,2540,1369,2685"
   ];
   return coords[index] || "0,0,0,0";
 }
+
+
+

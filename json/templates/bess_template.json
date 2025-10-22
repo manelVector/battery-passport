@@ -1,9 +1,9 @@
 {
   "general_info": {
     "battery_passport_id": "app",
-    "bess_model": "",
+    "bess_model": "VTA00000020V01.BESS BLOCK",
     "batch_number": "app",
-    "serial": ""
+    "serial": "app"
   },
   "manufacturer": {
     "name": "VectorEnergy",
@@ -34,7 +34,7 @@
     "aux_power_input_current": "10 a.c. A",
     "aux_power_frequency": "50/60Hz",
     "operating_temperature": "-20Cº to 45Cº",
-    "ip_rating": "",
+    "ip_rating": "54",
     "cooling_method": "Air cooling(PCS&Batteries), Air conditioning climate control (BESS)",
     "inverter_topology": "Non isolated",
     "altitude": "2000m",
