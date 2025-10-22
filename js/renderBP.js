@@ -146,7 +146,7 @@ export function renderBP(id, data) {
     <map name="image-map">`;
 
   data.cell_info.cells_id.forEach((cellId, i) => {
-    html += `<area class="area_bp" alt="cell${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
+    html += `<area class="area_bp" alt="CELL${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
   });
 
   html += `
