@@ -23,15 +23,11 @@ body {
 /* ========= HEADER ADAPTABLE ========= */
 header {
   width: 100%;
-  height: 60px;
+  height: 70px;
   background: url('media/banner-pc.svg') no-repeat center center;
   background-size: cover;
 }
 
-header .logo {
-  max-height: 100px;
-  width: auto;
-}
 
 .main-layout {
   flex: 1;
@@ -56,6 +52,8 @@ footer {
   color: #333F49;
   padding: 1rem 0;
   text-align: center;
+  justify-content: center;
+  align-items: center;
   border-top: 1px solid #ddd;
   font-size: 0.95rem;
 }
@@ -76,6 +74,25 @@ footer .small-text {
   color: #666;
   margin-top: 0.5rem;
 }
+footer .socials {
+  display: flex;              /* activa flexbox */
+  align-items: center;        /* centra verticalmente */
+  justify-content: center;/* todo alineado a la izquierda */
+  gap: 1rem;                  /* espacio entre texto e íconos */
+  padding: 0 1rem;            /* opcional, para no pegar al borde */
+}
+
+footer .icons {
+  display: flex;
+  gap: 0.5rem;                /* espacio entre íconos */
+}
+
+footer .small-text {
+  margin: 0;                  /* quita margen superior que hacía que bajara */
+  font-size: 0.8rem;
+  color: #666;
+}
+
 
 /* ========= ANIMACIONES ========= */
 @keyframes aparecer {
@@ -92,7 +109,7 @@ footer .small-text {
     "frame1 interactive"
     "frame2 interactive";
   gap: 1rem;
-  height: calc(100vh - 220px); /* espacio sin header/footer */
+  height: calc(100vh - 165px); /* espacio sin header/footer */
   overflow: hidden;
 }
 
@@ -201,10 +218,87 @@ footer .small-text {
   overflow: hidden;        /* evita scroll innecesario */
 }
 
-.interactive_img {
-  width: 37%;      /* tu tamaño reducido */
+.interactive_img_bess{
+  width: 42%;      /* tu tamaño reducido */
   height: auto;
   display: block;
   margin: 0 auto;  /* centra horizontalmente */
   object-fit: contain;
 }
+.interactive_img_bp{
+  width: 35%;      /* tu tamaño reducido */
+  height: auto;
+  display: block;
+  margin: 0 auto;  /* centra horizontalmente */
+  object-fit: contain;
+}
+/* ======== MEDIA QUERY MÓVIL ======== */
+/* ========= MEDIA QUERY MÓVIL ========= */
+@media (max-width: 768px) {
+  /* Header */
+  header {
+    position: sticky;
+    width: 100%;
+    min-height: 40px; /* ajusta según el banner móvil */
+    background: url('media/banner-mobile.svg') no-repeat center center;
+    background-size: cover;
+  }
+
+  /* Main layout: flujo vertical */
+  .main-layout {
+    flex-direction: column;
+    padding: 0.5rem;
+    overflow: visible; /* permite scroll */
+  }
+
+  /* Container: sin grid, solo bloques verticales */
+  .container {
+    display: block;   /* elimina grid */
+    height: auto;     /* altura automática según contenido */
+    overflow: visible;
+    gap: 1rem;        /* separación entre frames */
+  }
+
+  .container .frame {
+    width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+    overflow: visible; /* quitar scroll interno */
+    padding: 1rem;
+  }
+
+  .interactive {
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    margin-bottom: 1rem;
+    padding: 1rem;
+  }
+
+  .interactive_img_bess,
+  .interactive_img_bp {
+    width: 80%;      /* tamaño más grande en móvil */
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+  }
+
+  /* Footer */
+  footer .socials {
+    flex-direction: column; /* texto arriba, íconos debajo */
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0 1rem;
+  }
+
+  footer .icons {
+    justify-content: flex-start;
+    gap: 0.5rem;
+  }
+
+  footer .small-text {
+    margin: 0;
+    font-size: 0.8rem;
+  }
+}
+

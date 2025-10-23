@@ -142,11 +142,12 @@ export function renderBP(id, data) {
   </div>
 
   <div class="interactive">
-    <img class="interactive_img" src="media/cellString.png" usemap="#image-map">
+    <img class="interactive_img_bp" src="media/cellString.png" usemap="#image-map">
     <map name="image-map">`;
 
   data.cell_info.cells_id.forEach((cellId, i) => {
     html += `<area class="area_bp" alt="CELL${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
+    console.log(`<area class="area_bp" alt="CELL${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`)
   });
 
   html += `
@@ -157,27 +158,29 @@ export function renderBP(id, data) {
 
 function getCellCoords(index) {
   const coords = [
-    "105,1359,346,1293", 
-    "108,1169,347,1232", 
-    "102,1042,346,1108", 
-    "105,918,347,983",
-    "105,790,343,859", 
-    "106,669,346,734", 
-    "105,541,345,611", 
-    "105,417,343,484",
-    "102,294,346,358", 
-    "103,168,345,236", 
-    "447,167,687,233", 
-    "444,292,690,359",
-    "444,417,688,484", 
-    "445,545,689,609", 
-    "442,664,690,734", 
-    "444,789,687,859",
-    "442,919,685,984", 
-    "442,1043,689,1109", 
-    "443,1165,689,1234", 
-    "445,1292,691,1356"
+    "383,5088,1440,5516",
+    "394,4624,1434,5003",
+    "380,4131,1420,4494",
+    "360,3585,1482,4004",
+    "375,3123,1437,3494",
+    "369,2626,1437,2989",
+    "363,2115,1451,2506",
+    "358,1626,1451,2000",
+    "369,1128,1446,1482",
+    "360,614,1440,988",
+    "1723,594,2806,1000",
+    "1726,1118,2797,1492",
+    "1734,1622,2799,1993",
+    "1735,2105,2806,2511",
+    "1720,2600,2800,2995",
+    "1723,3113,2806,3490",
+    "1703,3581,2814,4000",
+    "1706,4088,2823,4502",
+    "1709,4600,2808,4997",
+    "1706,5084,2808,5510"
   ];
   return coords[index] || "0,0,0,0";
 }
+
+
 

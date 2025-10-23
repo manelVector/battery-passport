@@ -33,7 +33,8 @@ const content = document.getElementById("content");
   content.innerHTML = html;
 
   initAccordion();
-  initImageMaps();
-  initInteractiveBESS(content);
   initInteractiveBP(content);
+  initInteractiveBESS(content);
+  
+  initImageMaps();
 })();

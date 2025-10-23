@@ -17,7 +17,7 @@ const buttonImages = {
 };
 
 export function initInteractiveBESS(container) {
-  const interactiveImg = container.querySelector('.interactive_img');
+  const interactiveImg = container.querySelector('.interactive_img_bess');
   const areas = container.querySelectorAll('.area_bess');
 
   if (!interactiveImg || areas.length === 0) return;

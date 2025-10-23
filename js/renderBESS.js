@@ -76,11 +76,12 @@ export function renderBESS(id, data) {
   // Batpacks interactive image (mantener igual)
   html += `
     <div class="interactive">
-      <img class="interactive_img" src="media/BessString.png" usemap="#image-map">
+      <img class="interactive_img_bess" src="media/BessString.png" usemap="#image-map">
       <map name="image-map">`;
 
   data.batpacks.forEach((bpId, i) => {
     html += `<area class="area_bess" alt="BP${i+1}" title="BP${i+1}" href="index.html?id=${bpId}" coords="${getBPcoords(i)}" shape="rect">`;
+
   });
 
   html += `</map></div></div>`;
