@@ -286,7 +286,7 @@ footer .small-text {
   /* Footer */
   footer .socials {
     flex-direction: column; /* texto arriba, íconos debajo */
-    align-items: flex-start;
+    align-items: center;
     gap: 0.5rem;
     padding: 0 1rem;
   }
