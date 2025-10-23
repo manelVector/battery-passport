@@ -3,7 +3,6 @@ export function renderCell(id, data) {
   let html = /*html*/`
   <div class = "container">
     <div class="frame">
-      <img class="back-arrow" onclick="history.back()" src="media/angulo.png"></img>
       <h3>Cell: ${id}</h3>
     </div>
     <div class ="frame">
