@@ -94,6 +94,10 @@ footer .small-text {
   color: #666;
 }
 
+.centered-content{
+  align-self: center;
+}
+
 
 /* ========= ANIMACIONES ========= */
 @keyframes aparecer {

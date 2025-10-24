@@ -41,11 +41,7 @@ export function renderBP(id, data) {
       html += `<img class="symbols" src="media/weee.png" alt="WEEE"></img>`;
     } else if (symbol === "UN38.3") {
       html += `<img class="symbols" src="media/un38_3.png" alt="UN38.3"></img>`;
-    } else if (symbol === "Cd") {
-      html += `<div class="symbol-text">Cd (Cadmium)</div>`;
-    } else if (symbol === "Pb") {
-      html += `<div class="symbol-text">Pb (Lead)</div>`;
-    }
+    } 
   });
 
   html += `
