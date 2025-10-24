@@ -38,3 +38,10 @@ const content = document.getElementById("content");
   
   initImageMaps();
 })();
+
+window.addEventListener("pageshow", function (event) {
+  if (event.persisted) {
+    // El usuario volvió atrás desde el caché de Safari
+    window.location.reload();
+  }
+});
