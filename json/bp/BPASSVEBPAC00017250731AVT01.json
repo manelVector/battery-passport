@@ -2,7 +2,7 @@
     "id_product_data": {
         "battery_passport_id": "BPASSVEBPAC00017250731AVT01",
         "model": "VTM00000021",
-        "serial": "BPAC00017250731A ",
+        "serial": "BPAC00017250731A",
         "batch": "OF0020003A",
         "manufacturer": "VECTOR ENERGY GLOBAL S.L.",
         "address": "C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
@@ -11,6 +11,7 @@
         "NIF": "ESB64702277",
         "manufacturing_place": "C/ Montcada, 7 -  Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
         "manufacturing_date": "31/07/25",
+        "date_of_putting_into_service": "24/10/2025",
         "warranty_period": "",
         "battery_category": "Industrial battery - stationary battery for energy storage system",
         "battery_weight": "150 Kg",
@@ -32,7 +33,7 @@
     },
     "battery_carbon_footprint": {
         "carbon_footprint": "73.9526 KgCO2e/kWh",
-        "raw_material_acquisition_and_pre-processing_lifecycle_stage": "78,49%",
+        "raw_material_acquisition_and_pre_processing_lifecycle_stage": "78,49%",
         "main_product_production/manufacturing_lifecycle_stage": "11,38%",
         "distribution_lifecycle_stage": "0,75%",
         "end_of_life_and_recycling_lifecycle_stage": "9,39%",
@@ -69,37 +70,39 @@
             "safety_measures": "https://manelVector.github.io/battery-passport/contact.html"
         },
         "pre_consumer_recycled_content": {
-            "nickel_share": "",
-            "cobalt_share": "",
-            "lithium_share": "",
-            "lead_share": ""
+            "nickel_share": "0%",
+            "cobalt_share": "0%",
+            "lithium_share": "0%",
+            "lead_share": "0%"
         },
         "post_consumer_recycled_content": {
-            "nickel_share": "",
-            "cobalt_share": "",
-            "lithium_share": "",
-            "lead_share": ""
+            "nickel_share": "0%",
+            "cobalt_share": "0%",
+            "lithium_share": "0%",
+            "lead_share": "0%"
         },
-        "renewable_content_share": "",
-        "end_user_role": "https://manelVector.github.io/battery-passport/contact.html",
-        "end_user_collection_role": "",
+        "renewable_content_share": "5%",
+        "end_user_role_in_waste_prevention": "https://manelVector.github.io/battery-passport/contact.html",
+        "end_user_separate_collection_role": "https://manelVector.github.io/battery-passport/contact.html",
         "battery_collection_and_end_of_life": "https://manelVector.github.io/battery-passport/contact.html"
     },
     "performance_and_durability": {
         "voltage_and_power": {
-            "state_of_charge": "",
+            "state_of_charge": "47%",
             "minimum_voltage": "50 V",
             "maximum_voltage": "73 V",
             "nominal_voltage": "64 V",
+            "rated_capacity": "280 Ah",
+            "remaining_capacity": "280 Ah",
             "original_power_capability": "17,9 kWh",
             "remaining_power_capability": "17,9 kWh",
             "power_fade": "0,2%",
             "maximum_permitted_battery_power": "17,9kW, 25Cº "
         },
         "energy_efficiency": {
-            "initial_round_trip_efficiency": "",
-            "round_trip_efficiency_at_50pct_cycle_life": "",
-            "remaining_round_trip_efficiency": "",
+            "initial_round_trip_efficiency": "> 94% ",
+            "round_trip_efficiency_at_50pct_cycle_life": "> 85%",
+            "remaining_round_trip_efficiency": "94,75%(25ºC)",
             "energy_round_trip_efficiency_fade": "0,1%"
         },
         "self_discharge_and_resistance": {
@@ -110,23 +113,24 @@
         },
         "lifetime": {
             "expected_calendar_life_years": "13 años",
-            "expected_cycle_life": "1000 ciclos",
+            "expected_cycle_life": "10000 ciclos",
             "number_of_full_cycles": "16",
             "cycle_life_reference_test": "25ºC 50V to 73V",
             "c_rate_cycle_life_test": "0,5C",
-            "capacity_fade": ""
+            "capacity_fade": "19,6 % in 5000 Cycles "
         },
         "temperature_and_throughput": {
             "energy_throughtput": "286,4 kWh",
             "capacity_throughput": "4480Ah",
+            "temperature_information": "22,4 °C",
             "temperature_idle_range": {
                 "lower_boundary": "-30 °C",
                 "upper_boundary": "60 °C"
             },
-            "time_above_upper_boundary": "0",
-            "time_below_lower_boundary": "0",
-            "time_charging_above_boundary": "0",
-            "time_charging_below_boundary": "0"
+            "time_above_upper_boundary": "0 min",
+            "time_below_lower_boundary": "0 min",
+            "time_charging_above_boundary": "0 min",
+            "time_charging_below_boundary": "0 min"
         },
         "events_and_safety": {
             "number_of_deep_discharge_events": "0",
@@ -136,27 +140,27 @@
     },
     "cell_info": {
         "cell_model": "LITH",
-    "cells_id": [
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX",
-       "5470IYECKCQX"
-    ]
+        "cells_id": [
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX",
+            "5470IYECKCQX"
+        ]
     }
 }
