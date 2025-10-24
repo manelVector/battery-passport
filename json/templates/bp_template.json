@@ -115,7 +115,7 @@
       "internal_resistance_increase_pack": "0%"
     },
     "lifetime": {
-      "expected_calendar_life_years": "13 años",
+      "expected_calendar_life_years": "13 years",
       "expected_cycle_life": "10000 ciclos",
       "number_of_full_cycles": "16",
       "cycle_life_reference_test": "25ºC 50V to 73V",

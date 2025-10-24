@@ -7,8 +7,8 @@ export function renderCell(id, data) {
     </div>
     <div class ="frame">
       <div class="accordion">
-        <div class="accordion-title">General Information</div>
-        <div class="accordion-content">
+        <div class="accordion-title active">General Information</div>
+        <div class="accordion-content open">
           <div class="row"><div class="label">Manufacturer:</div><div class="value">${data.manufacturer_name}</div></div>
           <div class="row"><div class="label">EU Distributor:</div><div class="value">${data.eu_distributor_name}</div></div>
           <div class="row"><div class="label">Manufacturing Place:</div><div class="value">${data.manufacturing_place}</div></div>
