@@ -1,13 +1,13 @@
 {
     "general_info": {
         "battery_passport_id": "BPASSVEBESS00001250919AVT01",
-        "bess_model": "",
+        "bess_model": "VTA00000020V01.BESS BLOCK",
         "batch_number": "OF0000001",
         "serial": "BESS00001250919A"
     },
     "manufacturer": {
         "name": "VectorEnergy",
-        "registered_trade_name": "SUNVEC",
+        "registered_trade_name": "SUNVEC STORAGE",
         "postal_address": " C/ Montcada, 7 - Pol. Ind. Camp de les Pereres, 08130 Santa Perpètua de Mogoda, Barcelona",
         "web_address": "https://vectorenergy.com/",
         "email_address": "info@vectorenergy.com ",
@@ -34,7 +34,7 @@
         "aux_power_input_current": "10 a.c. A",
         "aux_power_frequency": "50/60Hz",
         "operating_temperature": "-20Cº to 45Cº",
-        "ip_rating": "",
+        "ip_rating": "IP54",
         "cooling_method": "Air cooling(PCS&Batteries), Air conditioning climate control (BESS)",
         "inverter_topology": "Non isolated",
         "altitude": "2000m",
