@@ -33,18 +33,14 @@ export function renderBP(id, data) {
       <div class="accordion-content">
         <div class="centered-content">`;
 
-  // Renderizar símbolos
   data.symbols_labels_doc_conformity.symbols_labels.forEach((symbol) => {
-    const map = {
-      "CE": "ce_mark.png",
-      "WEEE": "weee.png",
-      "UN38.3": "un38_3.png",
-      "Cd": "cd.png",
-      "Pb": "pb.png"
-    };
-    if (map[symbol]) {
-      html += `<img class="symbols" src="media/${map[symbol]}" alt="${symbol} symbol"></img>`;
-    }
+    if (symbol === "CE") {
+      html += `<img class="symbols" src="media/ce_mark.png" alt="CE Mark"></img>`;
+    } else if (symbol === "WEEE") {
+      html += `<img class="symbols" src="media/weee.png" alt="WEEE"></img>`;
+    } else if (symbol === "UN38.3") {
+      html += `<img class="symbols" src="media/un38_3.png" alt="UN38.3"></img>`;
+    } 
   });
 
   html += `
@@ -118,6 +114,14 @@ export function renderBP(id, data) {
 
   <div class="interactive">
     <img class="interactive_img_bp" src="media/cellString.png" usemap="#image-map">
+    <map name="image-map">`;
+
+  data.cell_info.cells_id.forEach((cellId, i) => {
+    html += `<area class="area_bp" alt="CELL${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
+  });
+
+  html += `
+    </map>
   </div></div>`;
   return html;
 }
@@ -166,3 +170,30 @@ function renderPerformance(perf) {
     <div class="row"><div class="label">Accidents:</div><div class="value">${perf.events_and_safety.accidents_information}</div></div>
   `;
 }
+
+function getCellCoords(index) {
+  const coords = [
+    "383,5088,1440,5516",
+    "394,4624,1434,5003",
+    "380,4131,1420,4494",
+    "360,3585,1482,4004",
+    "375,3123,1437,3494",
+    "369,2626,1437,2989",
+    "363,2115,1451,2506",
+    "358,1626,1451,2000",
+    "369,1128,1446,1482",
+    "360,614,1440,988",
+    "1723,594,2806,1000",
+    "1726,1118,2797,1492",
+    "1734,1622,2799,1993",
+    "1735,2105,2806,2511",
+    "1720,2600,2800,2995",
+    "1723,3113,2806,3490",
+    "1703,3581,2814,4000",
+    "1706,4088,2823,4502",
+    "1709,4600,2808,4997",
+    "1706,5084,2808,5510"
+  ];
+  return coords[index] || "0,0,0,0";
+}
+
