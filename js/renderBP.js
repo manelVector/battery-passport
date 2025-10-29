@@ -1,4 +1,4 @@
-// renderBP.js (versión corregida)
+// renderBP.js (versión ampliada con todos los campos excepto cell_info)
 export function renderBP(id, data) {
   let html = /*html*/`
   <div class="container">
@@ -31,17 +31,20 @@ export function renderBP(id, data) {
     <div class="accordion">
       <div class="accordion-title">Labels and Certifications</div>
       <div class="accordion-content">
-      <div class="centered-content">`;
+        <div class="centered-content">`;
 
-  // Símbolos
+  // Renderizar símbolos
   data.symbols_labels_doc_conformity.symbols_labels.forEach((symbol) => {
-    if (symbol === "CE") {
-      html += `<img class="symbols" src="media/ce_mark.png" alt="CE Mark"></img>`;
-    } else if (symbol === "WEEE") {
-      html += `<img class="symbols" src="media/weee.png" alt="WEEE"></img>`;
-    } else if (symbol === "UN38.3") {
-      html += `<img class="symbols" src="media/un38_3.png" alt="UN38.3"></img>`;
-    } 
+    const map = {
+      "CE": "ce_mark.png",
+      "WEEE": "weee.png",
+      "UN38.3": "un38_3.png",
+      "Cd": "cd.png",
+      "Pb": "pb.png"
+    };
+    if (map[symbol]) {
+      html += `<img class="symbols" src="media/${map[symbol]}" alt="${symbol} symbol"></img>`;
+    }
   });
 
   html += `
@@ -115,14 +118,6 @@ export function renderBP(id, data) {
 
   <div class="interactive">
     <img class="interactive_img_bp" src="media/cellString.png" usemap="#image-map">
-    <map name="image-map">`;
-
-  data.cell_info.cells_id.forEach((cellId, i) => {
-    html += `<area class="area_bp" alt="CELL${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
-  });
-
-  html += `
-    </map>
   </div></div>`;
   return html;
 }
@@ -130,50 +125,44 @@ export function renderBP(id, data) {
 // ---- Funciones auxiliares ----
 
 function renderPerformance(perf) {
-  // Simplifica visualmente el bloque de performance
   return `
     <div class="row"><div class="label">State of Charge:</div><div class="value">${perf.voltage_and_power.state_of_charge}</div></div>
-    <div class="row"><div class="label">Nominal Voltage:</div><div class="value">${perf.voltage_and_power.nominal_voltage}</div></div>
     <div class="row"><div class="label">Minimum Voltage:</div><div class="value">${perf.voltage_and_power.minimum_voltage}</div></div>
     <div class="row"><div class="label">Maximum Voltage:</div><div class="value">${perf.voltage_and_power.maximum_voltage}</div></div>
+    <div class="row"><div class="label">Nominal Voltage:</div><div class="value">${perf.voltage_and_power.nominal_voltage}</div></div>
+    <div class="row"><div class="label">Rated Capacity:</div><div class="value">${perf.voltage_and_power.rated_capacity}</div></div>
+    <div class="row"><div class="label">Remaining Capacity:</div><div class="value">${perf.voltage_and_power.remaining_capacity}</div></div>
     <div class="row"><div class="label">Original Power Capability:</div><div class="value">${perf.voltage_and_power.original_power_capability}</div></div>
     <div class="row"><div class="label">Remaining Power Capability:</div><div class="value">${perf.voltage_and_power.remaining_power_capability}</div></div>
     <div class="row"><div class="label">Power Fade:</div><div class="value">${perf.voltage_and_power.power_fade}</div></div>
-    <div class="row"><div class="label">Maximum Permitted Power:</div><div class="value">${perf.voltage_and_power.maximum_permitted_battery_power}</div></div>
+    <div class="row"><div class="label">Max Permitted Power:</div><div class="value">${perf.voltage_and_power.maximum_permitted_battery_power}</div></div>
 
     <div class="row"><div class="label">Initial Round Trip Efficiency:</div><div class="value">${perf.energy_efficiency.initial_round_trip_efficiency}</div></div>
-    <div class="row"><div class="label">Round Trip Efficiency at 50% Cycle Life:</div><div class="value">${perf.energy_efficiency.round_trip_efficiency_at_50pct_cycle_life}</div></div>
+    <div class="row"><div class="label">Round Trip Efficiency (50% Life):</div><div class="value">${perf.energy_efficiency.round_trip_efficiency_at_50pct_cycle_life}</div></div>
     <div class="row"><div class="label">Remaining Round Trip Efficiency:</div><div class="value">${perf.energy_efficiency.remaining_round_trip_efficiency}</div></div>
-    <div class="row"><div class="label">Energy Round Trip Efficiency Fade:</div><div class="value">${perf.energy_efficiency.energy_round_trip_efficiency_fade}</div></div>
+    <div class="row"><div class="label">Efficiency Fade:</div><div class="value">${perf.energy_efficiency.energy_round_trip_efficiency_fade}</div></div>
 
-    <div class="row"><div class="label">Expected Life:</div><div class="value">${perf.lifetime.expected_calendar_life_years}, ${perf.lifetime.expected_cycle_life}</div></div>
+    <div class="row"><div class="label">Self Discharge Rate:</div><div class="value">${perf.self_discharge_and_resistance.self_discharge_rate_evolution}</div></div>
+    <div class="row"><div class="label">Initial Internal Resistance (Cell):</div><div class="value">${perf.self_discharge_and_resistance.initial_internal_resistance_cell}</div></div>
+    <div class="row"><div class="label">Initial Internal Resistance (Pack):</div><div class="value">${perf.self_discharge_and_resistance.initial_internal_resistance_pack}</div></div>
+    <div class="row"><div class="label">Internal Resistance Increase (Pack):</div><div class="value">${perf.self_discharge_and_resistance.internal_resistance_increase_pack}</div></div>
+
+    <div class="row"><div class="label">Expected Calendar Life:</div><div class="value">${perf.lifetime.expected_calendar_life_years}</div></div>
+    <div class="row"><div class="label">Expected Cycle Life:</div><div class="value">${perf.lifetime.expected_cycle_life}</div></div>
     <div class="row"><div class="label">Number of Full Cycles:</div><div class="value">${perf.lifetime.number_of_full_cycles}</div></div>
+    <div class="row"><div class="label">Cycle Life Reference Test:</div><div class="value">${perf.lifetime.cycle_life_reference_test}</div></div>
+    <div class="row"><div class="label">C-Rate Test:</div><div class="value">${perf.lifetime.c_rate_cycle_life_test}</div></div>
     <div class="row"><div class="label">Capacity Fade:</div><div class="value">${perf.lifetime.capacity_fade}</div></div>
-  `;
-}
 
-function getCellCoords(index) {
-  const coords = [
-    "383,5088,1440,5516",
-    "394,4624,1434,5003",
-    "380,4131,1420,4494",
-    "360,3585,1482,4004",
-    "375,3123,1437,3494",
-    "369,2626,1437,2989",
-    "363,2115,1451,2506",
-    "358,1626,1451,2000",
-    "369,1128,1446,1482",
-    "360,614,1440,988",
-    "1723,594,2806,1000",
-    "1726,1118,2797,1492",
-    "1734,1622,2799,1993",
-    "1735,2105,2806,2511",
-    "1720,2600,2800,2995",
-    "1723,3113,2806,3490",
-    "1703,3581,2814,4000",
-    "1706,4088,2823,4502",
-    "1709,4600,2808,4997",
-    "1706,5084,2808,5510"
-  ];
-  return coords[index] || "0,0,0,0";
+    <div class="row"><div class="label">Energy Throughput:</div><div class="value">${perf.temperature_and_throughput.energy_throughtput}</div></div>
+    <div class="row"><div class="label">Capacity Throughput:</div><div class="value">${perf.temperature_and_throughput.capacity_throughput}</div></div>
+    <div class="row"><div class="label">Average Temperature:</div><div class="value">${perf.temperature_and_throughput.temperature_information}</div></div>
+    <div class="row"><div class="label">Idle Temp Range:</div><div class="value">${perf.temperature_and_throughput.temperature_idle_range.lower_boundary} - ${perf.temperature_and_throughput.temperature_idle_range.upper_boundary}</div></div>
+    <div class="row"><div class="label">Time Above Upper Boundary:</div><div class="value">${perf.temperature_and_throughput.time_above_upper_boundary}</div></div>
+    <div class="row"><div class="label">Time Below Lower Boundary:</div><div class="value">${perf.temperature_and_throughput.time_below_lower_boundary}</div></div>
+
+    <div class="row"><div class="label">Deep Discharge Events:</div><div class="value">${perf.events_and_safety.number_of_deep_discharge_events}</div></div>
+    <div class="row"><div class="label">Overcharge Events:</div><div class="value">${perf.events_and_safety.number_of_overcharge_events}</div></div>
+    <div class="row"><div class="label">Accidents:</div><div class="value">${perf.events_and_safety.accidents_information}</div></div>
+  `;
 }
