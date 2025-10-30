@@ -7,6 +7,13 @@ export function initAccordion() {
       title.classList.toggle('active');
     });
   });
+  document.querySelectorAll('.accordion-title-cells').forEach(title => {
+    title.addEventListener('click', () => {
+      const content = title.nextElementSibling;
+      content.classList.toggle('open');
+      title.classList.toggle('active');
+    });
+  });
 }
 
 export function initImageMaps() {

@@ -142,9 +142,6 @@ footer .small-text {
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 }
 
-.frame h3 {
-  margin-bottom: 1rem;
-}
 
 .row {
   display: flex;
@@ -170,7 +167,46 @@ footer .small-text {
 /* ========= ACORDEONES ========= */
 .accordion {
   margin-bottom: 1rem;
+
 }
+.accordion-cells {
+  margin-bottom: 1rem;
+  display: flex;
+  flex-direction: column-reverse; /* 👈 invierte el orden visual */
+  border: 0px solid #333F49;
+  border-radius: 6px;
+  overflow: visible;
+  position: relative;
+  z-index: 20;
+}
+
+.accordion-title-cells {
+  position: absolute;
+  min-width: 200px;
+  cursor: pointer;
+  font-size: 1.1rem;
+  font-weight: bold;
+  padding-right: 30px;
+  padding-left: 10px;
+  padding-top: 3px;
+  padding-bottom: 5px;
+  position: relative;
+  background: #fff;
+  z-index: 21;
+  border: none;
+  border-radius: 8px;
+  transition: background-color 0.2s, box-shadow 0.2s ease;
+  margin: 5px;
+  margin-top: 40px;
+  right: -70px;
+  bottom: -25px;
+
+  /* 👇 Sombra suave pero más marcada abajo y a la derecha */
+  box-shadow:
+    2px 2px 6px rgba(0, 0, 0, 0.25),  /* sombra principal abajo/derecha */
+    0px 0px 4px rgba(0, 0, 0, 0.1);   /* difuminado suave alrededor */
+}
+
 
 .accordion-title {
   cursor: pointer;
@@ -182,24 +218,132 @@ footer .small-text {
   transition: color 0.2s;
 }
 
+.accordion-title-cells::after, 
 .accordion-title::after {
   content: "⌵";
   position: absolute;
-  right: 0;
+  right: 5px;
   top: 50%;
   transform: translateY(-50%);
   transition: transform 0.3s;
 }
 
+.accordion-title-cells.active::after {
+  transform: translateY(-50%) rotate(180deg);
+}
+
+
 .accordion-content {
+  bottom: 100%;
   max-height: 0;
   overflow: hidden;
   font-size: 1rem;
   transition: max-height 0.3s ease;
 }
+/* === CONTENIDO QUE SE ABRE HACIA ARRIBA === */
+.accordion-content-cells {
+  position: absolute;
+  box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.25), 0px 0px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  font-size: 1rem;
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease;
+  flex-shrink: 0;
+  align-self: flex-end;
+  margin-right: 7px;
+  margin-top: 10px;
+  bottom: calc(55% + 5px);
+  right: -70px;
+  bottom: 25px;
+  background: #fff;
+  z-index: 20; /* capa superior */
+}
+.accordion-content-cells.open {
+  max-height: 180px; /* 👈 altura visible del panel */
+  opacity: 1;
+  overflow-y: auto;   /* 👈 scroll interno cuando hay mucho contenido */
+  scroll-behavior: smooth;
+  
+}
+
+/* Scrollbar general para frame y acordeón */
+.frame::-webkit-scrollbar,
+.accordion-content-cells::-webkit-scrollbar {
+  width: 16px;               /* ancho total de la barra */
+  background: transparent;   /* fondo de la scrollbar */
+}
+
+/* Thumb (el “pulsador” que se mueve) */
+.frame::-webkit-scrollbar-thumb,
+.accordion-content-cells::-webkit-scrollbar-thumb {
+  background-color: #aaaaaa; /* color del thumb */
+  border-radius: 8px;        /* redondeado */
+  border: 4px solid transparent; /* crea margen interno visual */
+  background-clip: content-box;  /* respeta el borde como margen */
+}
+
+/* Hover: resaltar la barra al pasar el ratón */
+.frame::-webkit-scrollbar-thumb:hover,
+.accordion-content-cells::-webkit-scrollbar-thumb:hover {
+  background-color: #888888;
+}
+
+/* Track (el fondo de la barra) */
+.frame::-webkit-scrollbar-track,
+.accordion-content-cells::-webkit-scrollbar-track {
+  background: transparent; /* sin color de fondo */
+}
+.cell-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 12px;
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #333F49;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  transition: 
+    background-color 0.25s ease,
+    transform 0.15s ease,
+    box-shadow 0.25s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  user-select: none;
+  width: 100%;
+}
+
+/* Hover (cuando el puntero pasa encima) */
+.cell-button:hover {
+  background-color: #F69240;
+  transform: translateY(-2px);
+  box-shadow: 3px 3px 7px rgba(0, 0, 0, 0.25);
+}
+
+/* Active (cuando haces clic) */
+.cell-button:active {
+  background-color: #F69240;
+  transform: translateY(0);
+  box-shadow: inset 1px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+
+
+
 
 .accordion-content.open {
   max-height: 2000px;
+}
+/* Estilo opcional para los botones */
+.row-cells {
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .symbols {
@@ -219,12 +363,14 @@ footer .small-text {
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 
-  display: flex;             /* contenedor flex horizontal */
+  display: flex;  
+  flex-direction: column;           /* contenedor flex horizontal */
   justify-content: center; /* espacio entre izquierda y derecha */
   align-items: center;       /* centra verticalmente */
   position: relative;        /* para posicionar la imagen extra absoluta */
   overflow: hidden ;
 }
+
 
 
 .interactive_img_bess{
@@ -238,12 +384,11 @@ footer .small-text {
 .interactive_img_cell{
   width: 140%;      /* tu tamaño reducido */
   height: auto;
-  display: block;
-  margin: 0 auto;  /* centra horizontalmente */
+  justify-self: center;
   object-fit: contain;
 }
 .interactive_img_bp{
-  width: 75%;      /* tu tamaño reducido */
+  width: 100%;      /* tu tamaño reducido */
   height: auto;
   display: block;
   margin: 0 auto;  /* centra horizontalmente */
@@ -291,9 +436,15 @@ footer .small-text {
     padding: 1rem;
   }
 
-  .interactive_img_bess,
+  .interactive_img_bess {
+    width: 150%;      /* tamaño más grande en móvil */
+    max-width: auto;
+    margin: 0 auto;
+    display: block;
+  }
+
   .interactive_img_bp {
-    width: 80%;      /* tamaño más grande en móvil */
+    width: 100%;      /* tamaño más grande en móvil */
     max-width: 100%;
     margin: 0 auto;
     display: block;

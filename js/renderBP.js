@@ -1,4 +1,5 @@
 // renderBP.js (versión ampliada con todos los campos excepto cell_info)
+import { isMobile } from "./ui.js";
 export function renderBP(id, data) {
   let html = /*html*/`
   <div class="container">
@@ -112,21 +113,82 @@ export function renderBP(id, data) {
     </div>
   </div>
 
-  <div class="interactive">
-    <img class="interactive_img_bp" src="media/CellString.png" usemap="#image-map">
-    <map name="image-map">`;
+`
+html += buildInteractiveHTML(data)
 
-  data.cell_info.cells_id.forEach((cellId, i) => {
-    html += `<area class="area_bp" alt="CELL${i+1}" title="CELL${i+1}" href="index.html?id=${cellId}" coords="${getCellCoords(i)}" shape="rect">`;
-  });
 
-  html += `
-    </map>
-  </div></div>`;
+
   return html;
 }
 
+
+
 // ---- Funciones auxiliares ----
+function buildInteractiveHTML(data) {
+  let html = '';
+
+  // --- Si es móvil: usamos acordeón ---
+  if (isMobile()) {
+    console.log("ismobile")
+    html += `
+      <div class="interactive">
+        <img class="interactive_img_bp" src="media/CellString.png">
+        <div class="accordion-cells">
+          <div class="accordion-title-cells">Select Cell:</div>
+          <div class="accordion-content-cells">
+    `;
+
+    data.cell_info.cells_id.forEach((cellId, i) => {
+      html += `
+        <div class="row-cells">
+          <button 
+            class="cell-button" 
+            id="cell-${i + 1}" 
+            data-cell-id="${cellId}" 
+            onclick="window.location.href='index.html?id=${cellId}'"
+          >
+            Cell ${i + 1}
+          </button>
+        </div>
+      `;
+    });
+
+    html += `
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // --- Si es escritorio: usamos mapa de imagen ---
+  else {
+    console.log("pc")
+    html += `
+      <div class="interactive">
+        <img class="interactive_img_bp" src="media/CellString.png" usemap="#cellmap">
+        <map name="cellmap">
+    `;
+
+    data.cell_info.cells_id.forEach((cellId, i) => {
+      html += `
+        <area 
+          class="area_bp" 
+          alt="CELL${i + 1}" 
+          title="CELL${i + 1}" 
+          href="index.html?id=${cellId}" 
+          coords="${getCellCoords(i)}" 
+          shape="poly">
+      `;
+    });
+
+    html += `
+        </map>
+      </div>
+    `;
+  }
+
+  return html;
+}
 
 function renderPerformance(perf) {
   return `
@@ -171,30 +233,32 @@ function renderPerformance(perf) {
   `;
 }
 
-function getCellCoords(index) {
+function getCellCoords(i) {
   const coords = [
-    "383,5088,1440,5516",
-    "394,4624,1434,5003",
-    "380,4131,1420,4494",
-    "360,3585,1482,4004",
-    "375,3123,1437,3494",
-    "369,2626,1437,2989",
-    "363,2115,1451,2506",
-    "358,1626,1451,2000",
-    "369,1128,1446,1482",
-    "360,614,1440,988",
-    "1723,594,2806,1000",
-    "1726,1118,2797,1492",
-    "1734,1622,2799,1993",
-    "1735,2105,2806,2511",
-    "1720,2600,2800,2995",
-    "1723,3113,2806,3490",
-    "1703,3581,2814,4000",
-    "1706,4088,2823,4502",
-    "1709,4600,2808,4997",
-    "1706,5084,2808,5510"
+    "1775,3379,2433,3132,3877,3755,3208,4013",
+    "2574,3113,3243,2832,4652,3454,4042,3713",
+    "3325,2820,3995,2608,5427,3149,4793,3419",
+    "4112,2552,4723,2294,6144,2869,5545,3128",
+    "4805,2277,5416,2054,6860,2618,6261,2829",
+    "5521,1993,6097,1781,7553,2322,6954,2568",
+    "6249,1774,6766,1563,8199,2080,7658,2315",
+    "6872,1511,7412,1323,8809,1805,8281,2028",
+    "7541,1293,8022,1105,9408,1586,8950,1810",
+    "8116,1079,8621,903,10077,1349,9537,1549",
+    "9983,1704,10465,1492,12050,2009,11580,2209",
+    "9373,1941,9889,1730,11498,2282,10958,2470",
+    "8750,2211,9279,1976,10864,2529,10336,2740",
+    "8104,2485,8621,2261,10253,2813,9690,3060",
+    "7377,2731,7940,2484,9584,3095,9021,3353",
+    "6707,3031,7259,2785,8868,3384,8304,3630",
+    "5967,3306,6590,3036,8163,3694,7588,3929",
+    "5228,3590,5838,3332,7435,3978,6825,4260",
+    "4464,3908,5110,3626,6684,4319,6026,4589",
+    "3595,4232,4324,3950,5920,4666,5204,4960"
   ];
-  return coords[index] || "0,0,0,0";
+
+  return coords[i] || "";
 }
+
 
 
