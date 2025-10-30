@@ -30,7 +30,7 @@ export function renderCell(id, data) {
     </div>
 
     <div class="interactive">
-      <img class="interactive_img" src="media/cell.png" usemap="#image-map">
+      <img class="interactive_img_cell" src="media/iso_cell.png" usemap="#image-map">
     </div>
   </div>
   `;

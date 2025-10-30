@@ -113,7 +113,7 @@ export function renderBP(id, data) {
   </div>
 
   <div class="interactive">
-    <img class="interactive_img_bp" src="media/cellString.png" usemap="#image-map">
+    <img class="interactive_img_bp" src="media/CellString.png" usemap="#image-map">
     <map name="image-map">`;
 
   data.cell_info.cells_id.forEach((cellId, i) => {
@@ -196,4 +196,5 @@ function getCellCoords(index) {
   ];
   return coords[index] || "0,0,0,0";
 }
+
 

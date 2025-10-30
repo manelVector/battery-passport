@@ -219,21 +219,31 @@ footer .small-text {
   padding: 1.5rem;
   box-shadow: 0 2px 8px rgba(0,0,0,0.05);
 
-  display: flex;           /* para centrar contenido */
-  justify-content: center; /* centra horizontalmente */
-  align-items: center;     /* centra verticalmente */
-  overflow: hidden;        /* evita scroll innecesario */
+  display: flex;             /* contenedor flex horizontal */
+  justify-content: center; /* espacio entre izquierda y derecha */
+  align-items: center;       /* centra verticalmente */
+  position: relative;        /* para posicionar la imagen extra absoluta */
+  overflow: hidden ;
 }
 
+
 .interactive_img_bess{
-  width: 40%;      /* tu tamaño reducido */
+  width: 70%;      /* tu tamaño reducido */
+  height: auto;
+  display: block;
+  margin: 0 auto;  /* centra horizontalmente */
+  object-fit: contain;
+}
+
+.interactive_img_cell{
+  width: 140%;      /* tu tamaño reducido */
   height: auto;
   display: block;
   margin: 0 auto;  /* centra horizontalmente */
   object-fit: contain;
 }
 .interactive_img_bp{
-  width: 35%;      /* tu tamaño reducido */
+  width: 75%;      /* tu tamaño reducido */
   height: auto;
   display: block;
   margin: 0 auto;  /* centra horizontalmente */
