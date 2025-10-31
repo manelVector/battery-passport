@@ -1,5 +1,7 @@
 // renderBESS.js
 
+import { isMobile } from "./ui.js";
+let imgSource = "";
 export function renderBESS(id, data) {
   let html = /*html*/`
   <div class = "container">
@@ -67,16 +69,24 @@ export function renderBESS(id, data) {
     else if (symbol === "UN38.3") html += `<img class="symbols" src="media/un38_3.png">`;
     else if (symbol === "Refer to the instruction manual") html += `<img class="symbols" src="media/read-manual.png">`;
   });
+  
+
 
   html += `
         </div>
       </div>
     </div>`;
+  if (isMobile()){
+    imgSource = "media/BessStringPhone.png";
+
+  }else{
+    imgSource = "media/BessStringPc.png";
+  }
 
   // Batpacks interactive image (mantener igual)
   html += `
     <div class="interactive">
-      <img class="interactive_img_bess" src="media/BessString.png" usemap="#image-map">
+      <img class="interactive_img_bess" src=${imgSource} usemap="#image-map">
       <map name="image-map">`;
 
   data.batpacks.forEach((bpId, i) => {
@@ -94,7 +104,10 @@ export function renderBESS(id, data) {
 }
 
 function getBPcoords(index) {
-  const coords = [
+  
+  let coords = [];
+  if (imgSource === "media/BessStringPc.png"){
+    coords = [
     "488,231,618,288" ,
     "490,362,617,422" ,
     "487,493,618,551" ,
@@ -108,9 +121,26 @@ function getBPcoords(index) {
     "744,752,878,817" ,
     "741,888,873,948" ,
     "741,1015,874,1078"
-  ];
+    ];
+  }else{
+    coords = [
+    "481,215,643,321",
+    "483,347,635,439",
+    "481,476,632,570",
+    "481,612,631,708",
+    "474,741,636,840",
+    "479,868,632,965",
+    "732,218,885,315",
+    "734,350,888,447",
+    "738,479,885,573",
+    "731,607,889,711",
+    "732,734,888,845",
+    "734,873,884,969",
+    "732,1008,886,1108"
+    ];
+  }
+
   return coords[index] || "0,0,0,0";
 }
-
 
 

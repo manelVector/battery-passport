@@ -437,7 +437,7 @@ footer .small-text {
   }
 
   .interactive_img_bess {
-    width: 150%;      /* tamaño más grande en móvil */
+    width: 100%;      /* tamaño más grande en móvil */
     max-width: auto;
     margin: 0 auto;
     display: block;
