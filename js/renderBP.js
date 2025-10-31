@@ -44,9 +44,9 @@ export function renderBP(id, data) {
     } 
   });
 
-  html += `
+  html += /*HTML*/`
         </div>
-        <div class="row"><div class="label">Meaning:</div><div class="value">${data.symbols_labels_doc_conformity.meaning}</div></div>
+        <div class="row"><div class="label">Meaning:</div></div><div class="centered-content">${data.symbols_labels_doc_conformity.meaning}</div>
         <div class="row"><div class="label">CE Doc:</div><div class="value"><a href="${data.symbols_labels_doc_conformity.CE_doc}" target="_blank">View Document</a></div></div>
         <div class="row"><div class="label">Extinguishing Agent:</div><div class="value">${data.symbols_labels_doc_conformity["extinguishing agent"]}</div></div>
         <div class="row"><div class="label">Carbon Footprint Label:</div><div class="value">${data.symbols_labels_doc_conformity.carbon_footprint_label}</div></div>

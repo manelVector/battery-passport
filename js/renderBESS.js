@@ -53,8 +53,9 @@ export function renderBESS(id, data) {
           <div class="row"><div class="label">Cooling Method:</div><div class="value">${data.technical_specs.cooling_method}</div></div>
           <div class="row"><div class="label">Inverter Topology:</div><div class="value">${data.technical_specs.inverter_topology}</div></div>
           <div class="row"><div class="label">Altitude:</div><div class="value">${data.technical_specs.altitude}</div></div>
-          <div class="row"><div class="label">Testing and Standards:</div><div class="value">${data.technical_specs.testing_and_standards}</div></div>
-        </div>
+          <div class="row"><div class="label">Testing and Standards:</div></div>
+          <div class="centered-content">${data.technical_specs.testing_and_standards}</div>
+          </div>
       </div>
 
       <div class="accordion">

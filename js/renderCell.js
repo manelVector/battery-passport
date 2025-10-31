@@ -11,7 +11,7 @@ export function renderCell(id, data) {
         <div class="accordion-content open">
           <div class="row"><div class="label">Manufacturer:</div><div class="value">${data.manufacturer_name}</div></div>
           <div class="row"><div class="label">EU Distributor:</div><div class="value">${data.eu_distributor_name}</div></div>
-          <div class="row"><div class="label">Manufacturing Place:</div><div class="value">${data.manufacturing_place}</div></div>
+          <div class="row"><div class="label">Manufacturing Place:</div></div><div class="centered-content">${data.manufacturing_place}</div>
           <div class="row"><div class="label">Cell Model:</div><div class="value">${data.cell_model}</div></div>
           <div class="row"><div class="label">Cell Chemistry:</div><div class="value">${data.cell_chemistry}</div></div>
           <div class="row"><div class="label">Cell Mass:</div><div class="value">${data.cell_mass}</div></div>
