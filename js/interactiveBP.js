@@ -39,7 +39,7 @@ export function initInteractiveBP(container) {
     });
 
     area.addEventListener('mouseleave', () => {
-      interactiveImg.src = activeCell ? buttonImages[activeCell] : 'media/cellString.png';
+      interactiveImg.src = activeCell ? buttonImages[activeCell] : 'media/CellString.png';
     });
 
     area.addEventListener('click', e => {
