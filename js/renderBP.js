@@ -4,7 +4,8 @@ export function renderBP(id, data) {
   let html = /*html*/`
   <div class="container">
   <div class="frame">
-    <h3>Battery Passport ID: ${data.id_product_data.battery_passport_id}</h3>
+    <h2>Battery Pack Nº: ${ data.id_product_data.bp_number}</h2>
+      <div class="row"><div class="label"><h3>Battery Passport ID: </h3></div><div class="value"><h3>${data.id_product_data.battery_passport_id}</h3></div></div>
       <div class="row"><div class="label">Model:</div><div class="value">${data.id_product_data.model}</div></div>
       <div class="row"><div class="label">Serial:</div><div class="value">${data.id_product_data.serial}</div></div>
       <div class="row"><div class="label">Batch:</div><div class="value">${data.id_product_data.batch}</div></div>
@@ -132,7 +133,7 @@ function buildInteractiveHTML(data) {
     console.log("ismobile")
     html += `
       <div class="interactive">
-        <img class="interactive_img_bp" src="media/CellString.png">
+        <img class="interactive_img_bp" src="media/CellStringPhone.png">
         <div class="accordion-cells">
           <div class="accordion-title-cells">Select Cell:</div>
           <div class="accordion-content-cells">
@@ -165,7 +166,7 @@ function buildInteractiveHTML(data) {
     console.log("pc")
     html += `
       <div class="interactive">
-        <img class="interactive_img_bp" src="media/CellString.png" usemap="#cellmap">
+        <img class="interactive_img_bp" src="media/CellStringPc.png" usemap="#cellmap">
         <map name="cellmap">
     `;
 
