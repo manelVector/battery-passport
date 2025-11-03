@@ -1,11 +1,19 @@
 // renderBP.js (versión ampliada con todos los campos excepto cell_info)
 import { isMobile } from "./ui.js";
+let boolPhone = isMobile();
 export function renderBP(id, data) {
   let html = /*html*/`
   <div class="container">
   <div class="frame">
-    <h2>Battery Pack Nº: ${ data.id_product_data.bp_number}</h2>
-      <div class="row"><div class="label"><h3>Battery Passport ID: </h3></div><div class="value"><h3>${data.id_product_data.battery_passport_id}</h3></div></div>
+    <h2>Battery Pack ${ data.id_product_data.bp_number}: </h2>`
+  if (boolPhone){
+    html += `<div class="row"><div class="label">Battery Passport ID: </div></div>
+    <div class="centered-content">${data.id_product_data.battery_passport_id}</div>`
+  }else{
+    html += `<div class="row"><div class="label"><h3>Battery Passport ID: </h3></div><div class="value"><h3>${data.id_product_data.battery_passport_id}</h3></div></div>`
+  }
+  html += /*html*/` 
+    
       <div class="row"><div class="label">Model:</div><div class="value">${data.id_product_data.model}</div></div>
       <div class="row"><div class="label">Serial:</div><div class="value">${data.id_product_data.serial}</div></div>
       <div class="row"><div class="label">Batch:</div><div class="value">${data.id_product_data.batch}</div></div>
@@ -129,8 +137,7 @@ function buildInteractiveHTML(data) {
   let html = '';
 
   // --- Si es móvil: usamos acordeón ---
-  if (isMobile()) {
-    console.log("ismobile")
+  if (boolPhone) {
     html += `
       <div class="interactive">
         <img class="interactive_img_bp" src="media/CellStringPhone.png">

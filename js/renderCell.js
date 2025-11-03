@@ -3,7 +3,7 @@ export function renderCell(id, data) {
   let html = /*html*/`
   <div class = "container">
     <div class="frame">
-      <h3>Cell: ${id}</h3>
+      <h2>Cell ${data.cell_number}: ${id}</h2>
     </div>
     <div class ="frame">
       <div class="accordion">
