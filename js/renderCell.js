@@ -1,6 +1,7 @@
 // renderCell.js
 export function renderCell(id, data) {
   let html = /*html*/`
+<img src="media/back-arrow.png" alt="Back" class="back-icon" onclick="window.history.back()">
   <div class = "container">
     <div class="frame">
       <h2>Cell ${data.cell_number}: ${id}</h2>

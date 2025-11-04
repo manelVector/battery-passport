@@ -3,6 +3,8 @@ import { isMobile } from "./ui.js";
 let boolPhone = isMobile();
 export function renderBP(id, data) {
   let html = /*html*/`
+<img src="media/back-arrow.png" alt="Back" class="back-icon" onclick="window.history.back()">
+
   <div class="container">
   <div class="frame">
     <h2>Battery Pack ${ data.id_product_data.bp_number}: </h2>`
@@ -125,7 +127,7 @@ export function renderBP(id, data) {
 `
 html += buildInteractiveHTML(data)
 
-
+html += ``
 
   return html;
 }
