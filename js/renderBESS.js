@@ -96,7 +96,7 @@ export function renderBESS(id, data) {
   });
 
   html += `</map>
-        
+        <p><b>Select Battery Pack</b></p>
       </div>
     </div>
   </div>`;

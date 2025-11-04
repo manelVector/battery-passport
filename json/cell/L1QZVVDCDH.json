@@ -10,7 +10,7 @@
   "nominal_voltage": "3,2V",
   "minimum_voltage": "2,5V",
   "maximum_voltage": "3,65V",
-  "cell_capacity_ah": "280Ah",
+  "cell_capacity_ah": "314Ah",
   "cell_capacity_wh": "896Wh",
   "internal_resistance": "2,55mOhm",
   "temperature_idle_lower": "-30ºC",

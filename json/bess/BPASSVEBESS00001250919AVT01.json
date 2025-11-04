@@ -22,7 +22,7 @@
         "battery_type": "LiFePO4",
         "dimensions": "2165x1240x2585(LxWxH)",
         "weight": "3000kg",
-        "rated_capacity_ah": "280Ah",
+        "rated_capacity_ah": "314Ah",
         "rated_energy_kwh": "230kWh",
         "rated_ac_power": "100kW",
         "rated_ac_voltage": "3W/(N)/PE, 400/230, 380/220 a.c. V",

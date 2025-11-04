@@ -410,7 +410,8 @@ footer .small-text {
   /* Header */
     header {
         width: 101%;
-        min-height: 32px;
+        height: auto;
+        min-height: 49px;
         background: url(media/banner-mobile.svg) no-repeat center top;
         background-size: cover;
         background-position: left;
@@ -483,5 +484,19 @@ footer .small-text {
     margin: 0;
     font-size: 0.8rem;
   }
+.back-icon {
+  position: fixed;    /* 👈 se alinea al viewport, no al contenedor */
+  top: 12px;
+  right: 12px;
+  width: 20px;
+  height: auto;
+  cursor: pointer;
+  z-index: 9999;      /* 👈 por si hay capas encima */
+}
+
+  .back-icon:hover {
+    opacity: 0.7;
+  }
+
 }
 

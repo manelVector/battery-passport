@@ -160,6 +160,7 @@ function buildInteractiveHTML(data) {
 
     html += `
         </map>
+        <p><b>Select Cell</b></p>
       </div>
     `;
   }
@@ -187,6 +188,7 @@ function buildInteractiveHTML(data) {
 
     html += `
         </map>
+        <p><b>Select Battery Pack</b></p>
       </div>
     `;
   }

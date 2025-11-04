@@ -1,6 +1,6 @@
 {
   "cell_model": "LFP71173207/280Ah",
-  "manufacturer_name": "Xiamen Hithium Energy Storage Technology Co., Ltd.",
+  "manufacturer_name": "Cell Manufacturer",
   "eu_distributor_name": "Vector Energy S.L.",
   "manufacturing_place": "201-1, Comprehensive Building 5, No. 11, Butang Middle Road, Industrial Base Of Xiamen Torch High Tech Zone (Tongxiang), Xiamen, Fujian, P.R. China",
   "cell_chemistry": "LiFePo4",
@@ -10,7 +10,7 @@
   "nominal_voltage": "3,2V",
   "minimum_voltage": "2,5V",
   "maximum_voltage": "3,65V",
-  "cell_capacity_ah": "280Ah",
+  "cell_capacity_ah": "314Ah",
   "cell_capacity_wh": "896Wh",
   "internal_resistance": "2,55mOhm",
   "temperature_idle_lower": "-30ºC",
