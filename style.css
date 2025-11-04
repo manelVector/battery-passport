@@ -353,9 +353,9 @@ footer .small-text {
 }
 .back-icon {
     position: fixed;
-    top: -56px;
-    left: 303px;
-    width: 43px;
+    top: -52px;
+    left: 314px;
+    width: 21px;
     height: auto;
     cursor: pointer;
     z-index: 1000;
