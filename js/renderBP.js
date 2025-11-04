@@ -140,30 +140,24 @@ function buildInteractiveHTML(data) {
   if (boolPhone) {
     html += `
       <div class="interactive">
-        <img class="interactive_img_bp" src="media/CellStringPhone.png">
-        <div class="accordion-cells">
-          <div class="accordion-title-cells">Select Cell:</div>
-          <div class="accordion-content-cells">
+        <img class="interactive_img_bp" src="media/CellStringPhone.png" usemap="#cellmapphone">
+        <map name="cellmapphone">
     `;
 
     data.cell_info.cells_id.forEach((cellId, i) => {
       html += `
-        <div class="row-cells">
-          <button 
-            class="cell-button" 
-            id="cell-${i + 1}" 
-            data-cell-id="${cellId}" 
-            onclick="window.location.href='index.html?id=${cellId}'"
-          >
-            Cell ${i + 1}
-          </button>
-        </div>
+        <area 
+          class="area_bp" 
+          alt="CELL${i + 1}" 
+          title="CELL${i + 1}" 
+          href="index.html?id=${cellId}" 
+          coords="${getCellCoordsMobile(i)}" 
+          shape="rect">
       `;
     });
 
     html += `
-          </div>
-        </div>
+        </map>
       </div>
     `;
   }
@@ -267,6 +261,34 @@ function getCellCoords(i) {
 
   return coords[i] || "";
 }
+
+function getCellCoordsMobile(i) {
+  const coords = [
+    "92,631,261,573",
+    "94,505,266,563",
+    "101,441,265,492",
+    "112,381,264,430",
+    "116,325,266,375",
+    "116,269,267,316",
+    "120,218,266,264",
+    "125,168,267,213",
+    "128,121,267,159",
+    "133,74,267,115",
+    "309,77,443,116",
+    "309,123,444,162",
+    "310,169,451,211",
+    "310,219,455,262",
+    "308,268,459,316",
+    "306,324,464,371",
+    "309,379,468,432",
+    "307,441,475,492",
+    "307,500,486,567",
+    "305,572,487,631"
+  ];
+
+  return coords[i] || "";
+}
+
 
 
 

@@ -2,6 +2,7 @@
 import { isMobile } from "./ui.js";
 
 let buttonImages =  {};
+let defaultImage = '';
 
 if (isMobile()){
   console.log("ismobile")
@@ -20,6 +21,7 @@ if (isMobile()){
   BP12: 'media/bp_buttons_phone/BP12.png',
   BP13: 'media/bp_buttons_phone/BP13.png'
   }
+  defaultImage = 'media/BessStringPhone.png'
 }else{
   buttonImages = {
       BP1: 'media/bp_buttons_pc/BP1.png',
@@ -36,6 +38,7 @@ if (isMobile()){
       BP12: 'media/bp_buttons_pc/BP12.png',
       BP13: 'media/bp_buttons_pc/BP13.png',
   }
+  defaultImage = 'media/BessStringPc.png'
 };
 
 export function initInteractiveBESS(container) {
@@ -54,7 +57,7 @@ export function initInteractiveBESS(container) {
     });
 
     area.addEventListener('mouseleave', () => {
-      interactiveImg.src = activeBP ? buttonImages[activeBP] : 'media/BessStringPc.png';
+      interactiveImg.src = activeBP ? buttonImages[activeBP] : defaultImage;
     });
 
     area.addEventListener('click', e => {
