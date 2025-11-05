@@ -363,9 +363,9 @@ footer .small-text {
   margin: 4px;
 }
 .back-icon {
-    position: fixed;
-    top: -52px;
-    left: 314px;
+    position: absolute;
+    top: 3%;
+    left: 96%;
     width: 21px;
     height: auto;
     cursor: pointer;
@@ -403,7 +403,7 @@ footer .small-text {
 }
 
 .interactive_img_cell{
-  width: 140%;      /* tu tamaño reducido */
+  width: 50%;      /* tu tamaño reducido */
   height: auto;
   justify-self: center;
   object-fit: contain;
