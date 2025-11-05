@@ -98,6 +98,9 @@ footer .small-text {
 
 .centered-content{
   align-self: center;
+  padding-top: 1px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #eee;
 }
 
 
@@ -149,6 +152,14 @@ footer .small-text {
   align-items: center;
   padding: 6px 0;
   border-bottom: 1px solid #eee;
+}
+
+.row-centered {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 0px solid #eee;
 }
 
 .label {
@@ -487,7 +498,7 @@ footer .small-text {
 .back-icon {
   position: fixed;    /* 👈 se alinea al viewport, no al contenedor */
   top: 12px;
-  right: 12px;
+  left: 90%;
   width: 20px;
   height: auto;
   cursor: pointer;
